@@ -61,7 +61,7 @@ class RegisterForm extends StatelessWidget {
                 height: 20,
               ),
               Tooltip(
-                message: "Password Assistance",
+                message: 'Password Assistance',
                 child: PasswordFormField(
                   password: state.password,
                   showValidatorMessages: state.showValidatorMessages,
