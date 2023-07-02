@@ -1,13 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../app/constants/decorations.dart';
+
 class CustomDropdownButton extends StatelessWidget {
-  const CustomDropdownButton(
-      {super.key,
-      required this.items,
-      this.prefixIcon,
-      this.onChanged,
-      this.value,});
+  const CustomDropdownButton({
+    super.key,
+    required this.items,
+    this.prefixIcon,
+    this.onChanged,
+    this.value,
+  });
 
   final List<String> items;
   final Widget? prefixIcon;
@@ -18,11 +21,9 @@ class CustomDropdownButton extends StatelessWidget {
     return SizedBox(
       height: 60,
       child: DropdownButtonFormField(
-        decoration: InputDecoration(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        decoration: getInputDecoration(
           prefixIcon: prefixIcon,
-          enabledBorder: const UnderlineInputBorder(),
-          focusedBorder: const UnderlineInputBorder(),
-          errorBorder: const UnderlineInputBorder(),
         ),
         isExpanded: true,
         value: value ?? items.first,
@@ -45,7 +46,8 @@ class CustomDropdownButton extends StatelessWidget {
     properties
       ..add(IterableProperty<String>('items', items))
       ..add(
-          ObjectFlagProperty<Function(String? p1)?>.has('onChanged', onChanged),)
+        ObjectFlagProperty<Function(String? p1)?>.has('onChanged', onChanged),
+      )
       ..add(StringProperty('value', value));
   }
 }

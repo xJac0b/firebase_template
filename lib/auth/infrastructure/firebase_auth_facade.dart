@@ -5,19 +5,15 @@ import 'package:injectable/injectable.dart';
 
 import '../domain/auth_failure.dart';
 import '../domain/i_auth_facade.dart';
-import '../domain/user/i_user_repository.dart';
 import '../domain/value_objects.dart';
-import 'firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   FirebaseAuthFacade(
-    this._userRepository,
     this._firebaseAuth,
     this._googleSignIn,
   );
 
-  final IUserRepository _userRepository;
   final firebase_auth.FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
 
@@ -45,10 +41,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         email: emailAddressString,
         password: passwordString,
       );
-      await _userRepository.create(
-        getSignedInUser()
-            .fold(() => throw Exception(), (user) => user.toDomain()),
-      );
+     
       return right(unit);
     } on firebase_auth.FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use' ||

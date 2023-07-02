@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../../l10n/l10n.dart';
-import 'custom_dropdown_button.dart';
+import '../../../../../l10n/l10n.dart';
+import '../../../widgets/custom_dropdown_button.dart';
 
 class GenderDropdown extends StatefulWidget {
   const GenderDropdown({super.key, required this.maleInitial});

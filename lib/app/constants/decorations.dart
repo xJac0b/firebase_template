@@ -9,8 +9,9 @@ InputDecoration getInputDecoration({
   bool showValidatorMessages = true,
 }) {
   final outlineInputBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(formFieldRadius),
-      borderSide: const BorderSide(color: Color.fromARGB(255, 198, 53, 42)),);
+    borderRadius: BorderRadius.circular(formFieldRadius),
+    borderSide: const BorderSide(color: Color.fromARGB(255, 198, 53, 42)),
+  );
   return InputDecoration(
     suffixIcon: suffixIcon,
     prefixIcon: prefixIcon,
@@ -19,7 +20,8 @@ InputDecoration getInputDecoration({
     focusedErrorBorder: outlineInputBorder,
     errorBorder: outlineInputBorder,
     border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(formFieldRadius),
-        borderSide: BorderSide.none,),
+      borderRadius: BorderRadius.circular(formFieldRadius),
+      borderSide: BorderSide.none,
+    ),
   );
 }

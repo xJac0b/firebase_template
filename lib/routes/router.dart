@@ -16,12 +16,23 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(path: '/login', page: LoginRoute.page, keepHistory: false),
         AutoRoute(
-            path: '/register', page: RegisterRoute.page, keepHistory: false,),
+          path: '/register',
+          page: RegisterRoute.page,
+          keepHistory: false,
+        ),
         AutoRoute(
-            path: '/reset', page: ResetPasswordRoute.page, keepHistory: false,),
+          path: '/reset',
+          page: ResetPasswordRoute.page,
+          keepHistory: false,
+        ),
         AutoRoute(
           path: '/verification',
           page: VerificationRoute.page,
+          keepHistory: false,
+        ),
+        AutoRoute(
+          path: '/fill',
+          page: FillDataRoute.page,
           keepHistory: false,
         ),
         AutoRoute(path: '/counter', page: CounterRoute.page),

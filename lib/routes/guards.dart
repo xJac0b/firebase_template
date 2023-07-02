@@ -16,14 +16,18 @@ class AuthGuard extends AutoRouteGuard {
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     _authFacade.getSignedInUser().fold(() => router.push(const LoginRoute()),
         (u) async {
-      final user = await _userRepository.get(u);
-      await user.fold((l) => router.push(const LoginRoute()), (u) {
-        if (u.emailVerified) {
-          resolver.next();
-        } else {
-          router.push(VerificationRoute(email: u.email.getOrCrash()));
-        }
-      });
+      if (u.emailVerified) {
+        final user = await _userRepository.get(u);
+        await user.fold((l) => router.push(const LoginRoute()), (u) {
+          if (u.filled ?? false) {
+            resolver.next();
+          } else {
+            router.push(const FillDataRoute());
+          }
+        });
+      } else {
+        await router.push(VerificationRoute(email: u.email!));
+      }
     });
   }
 }

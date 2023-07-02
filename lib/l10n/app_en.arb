@@ -33,5 +33,7 @@
     "fillDataHeading": "Just few informations",
     "dateOfBirth": "Date of birth",
     "greeting": "Hi",
-    "check": "Check"
+    "check": "Check",
+    "save": "Save",
+    "invalidDate": "Invalid date"
 }

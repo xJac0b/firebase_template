@@ -11,18 +11,20 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:cloud_firestore/cloud_firestore.dart' as _i5;
 import 'package:firebase_auth/firebase_auth.dart' as _i4;
-import 'package:firebase_template/auth/application/auth_bloc.dart' as _i12;
+import 'package:firebase_template/auth/application/auth/auth_bloc.dart' as _i12;
+import 'package:firebase_template/auth/application/fill_data/fill_data_bloc.dart'
+    as _i14;
 import 'package:firebase_template/auth/application/sign_in_form/sign_in_form_bloc.dart'
     as _i11;
-import 'package:firebase_template/auth/domain/i_auth_facade.dart' as _i9;
+import 'package:firebase_template/auth/domain/i_auth_facade.dart' as _i7;
 import 'package:firebase_template/auth/domain/user/i_user_repository.dart'
-    as _i7;
+    as _i9;
 import 'package:firebase_template/auth/infrastructure/firebase_auth_facade.dart'
-    as _i10;
-import 'package:firebase_template/auth/infrastructure/firebase_injectable.module.dart'
-    as _i14;
-import 'package:firebase_template/auth/infrastructure/user/user_repository.dart'
     as _i8;
+import 'package:firebase_template/auth/infrastructure/firebase_injectable.module.dart'
+    as _i15;
+import 'package:firebase_template/auth/infrastructure/user/user_repository.dart'
+    as _i10;
 import 'package:firebase_template/routes/guards.dart' as _i13;
 import 'package:firebase_template/routes/router.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
@@ -48,22 +50,27 @@ extension GetItInjectableX on _i1.GetIt {
         () => firebaseInjectableModule.firestore);
     gh.lazySingleton<_i6.GoogleSignIn>(
         () => firebaseInjectableModule.googleSignIn);
-    gh.lazySingleton<_i7.IUserRepository>(
-        () => _i8.UserRepository(gh<_i5.FirebaseFirestore>()));
-    gh.lazySingleton<_i9.IAuthFacade>(() => _i10.FirebaseAuthFacade(
-          gh<_i7.IUserRepository>(),
+    gh.lazySingleton<_i7.IAuthFacade>(() => _i8.FirebaseAuthFacade(
           gh<_i4.FirebaseAuth>(),
           gh<_i6.GoogleSignIn>(),
         ));
-    gh.factory<_i11.SignInFormBloc>(
-        () => _i11.SignInFormBloc(gh<_i9.IAuthFacade>()));
-    gh.factory<_i12.AuthBloc>(() => _i12.AuthBloc(gh<_i9.IAuthFacade>()));
+    gh.lazySingleton<_i9.IUserRepository>(
+        () => _i10.UserRepository(gh<_i5.FirebaseFirestore>()));
+    gh.factory<_i11.SignInFormBloc>(() => _i11.SignInFormBloc(
+          gh<_i7.IAuthFacade>(),
+          gh<_i9.IUserRepository>(),
+        ));
+    gh.factory<_i12.AuthBloc>(() => _i12.AuthBloc(gh<_i7.IAuthFacade>()));
     gh.factory<_i13.AuthGuard>(() => _i13.AuthGuard(
-          gh<_i9.IAuthFacade>(),
-          gh<_i7.IUserRepository>(),
+          gh<_i7.IAuthFacade>(),
+          gh<_i9.IUserRepository>(),
+        ));
+    gh.factory<_i14.FillDataBloc>(() => _i14.FillDataBloc(
+          gh<_i9.IUserRepository>(),
+          gh<_i7.IAuthFacade>(),
         ));
     return this;
   }
 }
 
-class _$FirebaseInjectableModule extends _i14.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i15.FirebaseInjectableModule {}

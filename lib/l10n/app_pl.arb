@@ -33,5 +33,8 @@
     "fillDataHeading": "Kilka informacji",
     "dateOfBirth": "Data urodzenia",
     "greeting": "Cześć",
-    "check": "Sprawdź"
+    "check": "Sprawdź",
+    "save": "Zapisz",
+    "invalidDate": "Nieprawidłowa data"
+
     }

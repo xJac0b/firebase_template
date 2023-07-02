@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../auth/application/auth_bloc.dart';
+import '../../auth/application/auth/auth_bloc.dart';
 import '../../injection.dart';
 import '../../l10n/l10n.dart';
 import '../../routes/router.dart';

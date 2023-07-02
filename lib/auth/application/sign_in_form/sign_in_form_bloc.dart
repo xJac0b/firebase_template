@@ -9,7 +9,9 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/auth_failure.dart';
 import '../../domain/i_auth_facade.dart';
+import '../../domain/user/i_user_repository.dart';
 import '../../domain/value_objects.dart';
+import '../../infrastructure/firebase_user_mapper.dart';
 
 part 'sign_in_form_bloc.freezed.dart';
 part 'sign_in_form_event.dart';
@@ -17,7 +19,8 @@ part 'sign_in_form_state.dart';
 
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
-  SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
+  SignInFormBloc(this._authFacade, this._userRepository)
+      : super(SignInFormState.initial()) {
     on<SignInWithEmailAndPasswordPressed>(
       signInWithEmailAndPassword,
     );
@@ -48,6 +51,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   }
 
   final IAuthFacade _authFacade;
+  final IUserRepository _userRepository;
 
   void changeEmailAddress(EmailChanged event, Emitter<SignInFormState> emit) {
     emit(
@@ -222,6 +226,11 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     EmailVerified event,
     Emitter<SignInFormState> emit,
   ) async {
+    await _userRepository.create(
+      _authFacade
+          .getSignedInUser()
+          .fold(() => throw Exception(), (user) => user.toDomain()),
+    );
     emit(
       state.copyWith(authFailureOrSuccessOption: some(right(unit))),
     );

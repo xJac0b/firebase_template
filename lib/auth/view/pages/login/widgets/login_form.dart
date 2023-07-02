@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../l10n/l10n.dart';
 import '../../../../../routes/router.gr.dart';
-import '../../../../application/auth_bloc.dart';
+import '../../../../application/auth/auth_bloc.dart';
 import '../../../../application/sign_in_form/sign_in_form_bloc.dart';
 import '../../../widgets/email_form_field.dart';
 import '../../../widgets/password_form_field.dart';
