@@ -7,7 +7,7 @@ class CustomDropdownButton extends StatelessWidget {
       required this.items,
       this.prefixIcon,
       this.onChanged,
-      this.value});
+      this.value,});
 
   final List<String> items;
   final Widget? prefixIcon;
@@ -45,7 +45,7 @@ class CustomDropdownButton extends StatelessWidget {
     properties
       ..add(IterableProperty<String>('items', items))
       ..add(
-          ObjectFlagProperty<Function(String? p1)?>.has('onChanged', onChanged))
+          ObjectFlagProperty<Function(String? p1)?>.has('onChanged', onChanged),)
       ..add(StringProperty('value', value));
   }
 }

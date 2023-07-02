@@ -15,7 +15,7 @@ class WideButton extends StatelessWidget {
           minimumSize: const Size.fromHeight(50),
         ),
         onPressed: onPressed,
-        child: Text(label, style: Theme.of(context).textTheme.labelLarge));
+        child: Text(label, style: Theme.of(context).textTheme.labelLarge),);
   }
 
   @override

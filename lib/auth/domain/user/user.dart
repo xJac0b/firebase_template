@@ -10,7 +10,7 @@ class User with _$User {
   const factory User({
     required UniqueId id,
     required bool emailVerified,
-    EmailAddress? email,
+    required EmailAddress email,
     DisplayName? displayName,
     String? photoUrl,
     bool? filled,

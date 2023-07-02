@@ -11,8 +11,8 @@ import '../firestore_helpers.dart';
 import 'user_dtos.dart';
 
 @LazySingleton(as: IUserRepository)
-class EntryRepository implements IUserRepository {
-  EntryRepository(this._firestore);
+class UserRepository implements IUserRepository {
+  UserRepository(this._firestore);
 
   final FirebaseFirestore _firestore;
 

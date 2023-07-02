@@ -10,7 +10,7 @@ InputDecoration getInputDecoration({
 }) {
   final outlineInputBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(formFieldRadius),
-      borderSide: const BorderSide(color: Color.fromARGB(255, 198, 53, 42)));
+      borderSide: const BorderSide(color: Color.fromARGB(255, 198, 53, 42)),);
   return InputDecoration(
     suffixIcon: suffixIcon,
     prefixIcon: prefixIcon,
@@ -20,6 +20,6 @@ InputDecoration getInputDecoration({
     errorBorder: outlineInputBorder,
     border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(formFieldRadius),
-        borderSide: BorderSide.none),
+        borderSide: BorderSide.none,),
   );
 }

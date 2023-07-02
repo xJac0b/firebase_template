@@ -8,17 +8,19 @@ class LoginPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(),
       resizeToAvoidBottomInset: false,
-      body: Center(
-          child: DefaultPadding(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            LoginForm(),
-          ],
+      body: const Center(
+        child: DefaultPadding(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LoginForm(),
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }

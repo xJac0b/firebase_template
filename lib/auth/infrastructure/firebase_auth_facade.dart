@@ -45,8 +45,10 @@ class FirebaseAuthFacade implements IAuthFacade {
         email: emailAddressString,
         password: passwordString,
       );
-      await _userRepository.create(getSignedInUser()
-          .fold(() => throw Exception(), (user) => user.toDomain()));
+      await _userRepository.create(
+        getSignedInUser()
+            .fold(() => throw Exception(), (user) => user.toDomain()),
+      );
       return right(unit);
     } on firebase_auth.FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use' ||
@@ -132,8 +134,7 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<bool> isEmailVerified() async {
-    final user = _firebaseAuth.currentUser;
-    await user!.reload();
-    return user.emailVerified;
+    await _firebaseAuth.currentUser!.reload();
+    return _firebaseAuth.currentUser!.emailVerified;
   }
 }

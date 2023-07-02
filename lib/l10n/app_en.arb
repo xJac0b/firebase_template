@@ -32,5 +32,6 @@
     "genderOther": "Other",
     "fillDataHeading": "Just few informations",
     "dateOfBirth": "Date of birth",
-    "greeting": "Hi"
+    "greeting": "Hi",
+    "check": "Check"
 }

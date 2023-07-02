@@ -11,33 +11,36 @@ part 'user_dtos.g.dart';
 
 @freezed
 class UserDto with _$UserDto {
-  const factory UserDto(
-      {String? id, bool? filled, DateTime? dateOfBirth, bool? male}) = _UserDto;
+  const factory UserDto({
+    bool? filled,
+    DateTime? dateOfBirth,
+    bool? male,
+  }) = _UserDto;
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
       _$UserDtoFromJson(json);
 
   factory UserDto.fromFirestore(DocumentSnapshot doc) {
-    return UserDto.fromJson(doc.data()! as Map<String, dynamic>)
-        .copyWith(id: doc.id);
+    return UserDto.fromJson(doc.data()! as Map<String, dynamic>);
   }
 
   const UserDto._();
 
   factory UserDto.fromDomain(User user) {
     return UserDto(
-        filled: user.filled,
-        dateOfBirth: user.dateOfBirth?.getOrCrash(),
-        male: user.male);
+      filled: user.filled,
+      dateOfBirth: user.dateOfBirth?.getOrCrash(),
+      male: user.male,
+    );
   }
-
 
   User toDomain(firebase_auth.User fUser) {
     return User(
-      id: UniqueId.fromUniqueString(id!),
+      id: UniqueId.fromUniqueString(fUser.uid),
       emailVerified: fUser.emailVerified,
       email: EmailAddress(fUser.email!),
-      displayName: DisplayName(fUser.displayName ?? ''),
+      displayName:
+          fUser.displayName == null ? null : DisplayName(fUser.displayName!),
       photoUrl: fUser.photoURL,
       filled: filled,
       male: male,

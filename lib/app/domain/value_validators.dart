@@ -37,7 +37,7 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
 }
 
 Either<ValueFailure<DateTime>, DateTime> validateDateNotInFuture(
-    DateTime date) {
+    DateTime date,) {
   if (date.isAfter(DateTime.now())) {
     return left(ValueFailure.invalidDate(failedValue: date));
   } else {

@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$User {
   UniqueId get id => throw _privateConstructorUsedError;
   bool get emailVerified => throw _privateConstructorUsedError;
-  EmailAddress? get email => throw _privateConstructorUsedError;
+  EmailAddress get email => throw _privateConstructorUsedError;
   DisplayName? get displayName => throw _privateConstructorUsedError;
   String? get photoUrl => throw _privateConstructorUsedError;
   bool? get filled => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $UserCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       bool emailVerified,
-      EmailAddress? email,
+      EmailAddress email,
       DisplayName? displayName,
       String? photoUrl,
       bool? filled,
@@ -60,7 +60,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   $Res call({
     Object? id = null,
     Object? emailVerified = null,
-    Object? email = freezed,
+    Object? email = null,
     Object? displayName = freezed,
     Object? photoUrl = freezed,
     Object? filled = freezed,
@@ -76,10 +76,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.emailVerified
           : emailVerified // ignore: cast_nullable_to_non_nullable
               as bool,
-      email: freezed == email
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as EmailAddress?,
+              as EmailAddress,
       displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -113,7 +113,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       bool emailVerified,
-      EmailAddress? email,
+      EmailAddress email,
       DisplayName? displayName,
       String? photoUrl,
       bool? filled,
@@ -132,7 +132,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   $Res call({
     Object? id = null,
     Object? emailVerified = null,
-    Object? email = freezed,
+    Object? email = null,
     Object? displayName = freezed,
     Object? photoUrl = freezed,
     Object? filled = freezed,
@@ -148,10 +148,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.emailVerified
           : emailVerified // ignore: cast_nullable_to_non_nullable
               as bool,
-      email: freezed == email
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as EmailAddress?,
+              as EmailAddress,
       displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -182,7 +182,7 @@ class _$_User implements _User {
   const _$_User(
       {required this.id,
       required this.emailVerified,
-      this.email,
+      required this.email,
       this.displayName,
       this.photoUrl,
       this.filled,
@@ -194,7 +194,7 @@ class _$_User implements _User {
   @override
   final bool emailVerified;
   @override
-  final EmailAddress? email;
+  final EmailAddress email;
   @override
   final DisplayName? displayName;
   @override
@@ -245,7 +245,7 @@ abstract class _User implements User {
   const factory _User(
       {required final UniqueId id,
       required final bool emailVerified,
-      final EmailAddress? email,
+      required final EmailAddress email,
       final DisplayName? displayName,
       final String? photoUrl,
       final bool? filled,
@@ -257,7 +257,7 @@ abstract class _User implements User {
   @override
   bool get emailVerified;
   @override
-  EmailAddress? get email;
+  EmailAddress get email;
   @override
   DisplayName? get displayName;
   @override

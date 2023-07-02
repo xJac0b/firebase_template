@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,57 +38,60 @@ class RegisterForm extends StatelessWidget {
               );
             },
             (_) {
-              // context.router.replace(
-              // VerificationRoute(email: state.emailAddress.getOrCrash()));
+              context.router.push(
+                  VerificationRoute(email: state.emailAddress.getOrCrash()),);
               context.read<AuthBloc>().add(
                     const AuthEvent.authCheckRequested(),
                   );
-              // context.read<SignInFormBloc>().add(
-              // const SignInFormEvent.sendVerificationEmail(),
-              // );
+              context.read<SignInFormBloc>().add(
+                    const SignInFormEvent.sendVerificationEmail(),
+                  );
             },
           ),
         );
       },
       builder: (context, state) {
-        return Form(
-          child: Column(
-            children: [
-              EmailFormField(
-                showValidatorMessages: state.showValidatorMessages,
-                emailAddress: state.emailAddress,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Tooltip(
-                message: 'Password Assistance',
-                child: PasswordFormField(
+        if (state.isSubmitting ||
+            state.authFailureOrSuccessOption
+                .fold(() => false, (t) => t.fold((l) => false, (r) => true))) {
+          return const Center(child: CircularProgressIndicator());
+        } else {
+          return Form(
+            child: Column(
+              children: [
+                EmailFormField(
+                  showValidatorMessages: state.showValidatorMessages,
+                  emailAddress: state.emailAddress,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                PasswordFormField(
                   password: state.password,
                   showValidatorMessages: state.showValidatorMessages,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              WideButton(
-                onPressed: () => context.read<SignInFormBloc>().add(
-                      const SignInFormEvent
-                          .registerWithEmailAndPasswordPressed(),
-                    ),
-                label: context.l10n.registerButton,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SwitchFormButton(
-                leadingText: context.l10n.alreadyRegistered,
-                buttonText: context.l10n.loginButton,
-                route: const LoginRoute(),
-              )
-            ],
-          ),
-        );
+                const SizedBox(
+                  height: 30,
+                ),
+                WideButton(
+                  onPressed: () => context.read<SignInFormBloc>().add(
+                        const SignInFormEvent
+                            .registerWithEmailAndPasswordPressed(),
+                      ),
+                  label: context.l10n.registerButton,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                SwitchFormButton(
+                  leadingText: context.l10n.alreadyRegistered,
+                  buttonText: context.l10n.loginButton,
+                  route: const LoginRoute(),
+                )
+              ],
+            ),
+          );
+        }
       },
     );
   }

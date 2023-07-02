@@ -11,4 +11,5 @@ class AuthFailure with _$AuthFailure {
       InvalidEmailAndPasswordCombination;
   const factory AuthFailure.userNotFound() = UserNotFound;
   const factory AuthFailure.invalidEmail() = InvalidEmail;
+  const factory AuthFailure.emailNotVerified() = EmailNotVerified;
 }

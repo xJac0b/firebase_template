@@ -20,7 +20,6 @@ UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserDto {
-  String? get id => throw _privateConstructorUsedError;
   bool? get filled => throw _privateConstructorUsedError;
   DateTime? get dateOfBirth => throw _privateConstructorUsedError;
   bool? get male => throw _privateConstructorUsedError;
@@ -35,7 +34,7 @@ abstract class $UserDtoCopyWith<$Res> {
   factory $UserDtoCopyWith(UserDto value, $Res Function(UserDto) then) =
       _$UserDtoCopyWithImpl<$Res, UserDto>;
   @useResult
-  $Res call({String? id, bool? filled, DateTime? dateOfBirth, bool? male});
+  $Res call({bool? filled, DateTime? dateOfBirth, bool? male});
 }
 
 /// @nodoc
@@ -51,16 +50,11 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? filled = freezed,
     Object? dateOfBirth = freezed,
     Object? male = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       filled: freezed == filled
           ? _value.filled
           : filled // ignore: cast_nullable_to_non_nullable
@@ -84,7 +78,7 @@ abstract class _$$_UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       __$$_UserDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, bool? filled, DateTime? dateOfBirth, bool? male});
+  $Res call({bool? filled, DateTime? dateOfBirth, bool? male});
 }
 
 /// @nodoc
@@ -97,16 +91,11 @@ class __$$_UserDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? filled = freezed,
     Object? dateOfBirth = freezed,
     Object? male = freezed,
   }) {
     return _then(_$_UserDto(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       filled: freezed == filled
           ? _value.filled
           : filled // ignore: cast_nullable_to_non_nullable
@@ -126,14 +115,11 @@ class __$$_UserDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserDto extends _UserDto {
-  const _$_UserDto({this.id, this.filled, this.dateOfBirth, this.male})
-      : super._();
+  const _$_UserDto({this.filled, this.dateOfBirth, this.male}) : super._();
 
   factory _$_UserDto.fromJson(Map<String, dynamic> json) =>
       _$$_UserDtoFromJson(json);
 
-  @override
-  final String? id;
   @override
   final bool? filled;
   @override
@@ -143,7 +129,7 @@ class _$_UserDto extends _UserDto {
 
   @override
   String toString() {
-    return 'UserDto(id: $id, filled: $filled, dateOfBirth: $dateOfBirth, male: $male)';
+    return 'UserDto(filled: $filled, dateOfBirth: $dateOfBirth, male: $male)';
   }
 
   @override
@@ -151,7 +137,6 @@ class _$_UserDto extends _UserDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserDto &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.filled, filled) || other.filled == filled) &&
             (identical(other.dateOfBirth, dateOfBirth) ||
                 other.dateOfBirth == dateOfBirth) &&
@@ -160,7 +145,7 @@ class _$_UserDto extends _UserDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, filled, dateOfBirth, male);
+  int get hashCode => Object.hash(runtimeType, filled, dateOfBirth, male);
 
   @JsonKey(ignore: true)
   @override
@@ -178,16 +163,13 @@ class _$_UserDto extends _UserDto {
 
 abstract class _UserDto extends UserDto {
   const factory _UserDto(
-      {final String? id,
-      final bool? filled,
+      {final bool? filled,
       final DateTime? dateOfBirth,
       final bool? male}) = _$_UserDto;
   const _UserDto._() : super._();
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
 
-  @override
-  String? get id;
   @override
   bool? get filled;
   @override

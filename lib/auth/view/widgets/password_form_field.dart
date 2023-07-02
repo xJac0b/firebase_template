@@ -26,7 +26,7 @@ class PasswordFormField extends StatefulWidget {
     properties
       ..add(ObjectFlagProperty<Function()?>.has('onPressed', onPressed))
       ..add(DiagnosticsProperty<bool>(
-          'showValidatorMessages', showValidatorMessages))
+          'showValidatorMessages', showValidatorMessages,),)
       ..add(DiagnosticsProperty<Password>('password', password));
   }
 }
@@ -73,7 +73,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
               child: Text(
                 context.l10n.forgotPassword,
                 style: const TextStyle(fontWeight: FontWeight.bold),
-              ))
+              ),)
       ],
     );
   }

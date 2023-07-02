@@ -32,7 +32,7 @@ class SwitchFormButton extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                context.router.replace(route);
+                context.router.push(route);
               },
           )
         ],

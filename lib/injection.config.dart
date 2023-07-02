@@ -20,9 +20,10 @@ import 'package:firebase_template/auth/domain/user/i_user_repository.dart'
 import 'package:firebase_template/auth/infrastructure/firebase_auth_facade.dart'
     as _i10;
 import 'package:firebase_template/auth/infrastructure/firebase_injectable.module.dart'
-    as _i13;
+    as _i14;
 import 'package:firebase_template/auth/infrastructure/user/user_repository.dart'
     as _i8;
+import 'package:firebase_template/routes/guards.dart' as _i13;
 import 'package:firebase_template/routes/router.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:google_sign_in/google_sign_in.dart' as _i6;
@@ -48,7 +49,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i6.GoogleSignIn>(
         () => firebaseInjectableModule.googleSignIn);
     gh.lazySingleton<_i7.IUserRepository>(
-        () => _i8.EntryRepository(gh<_i5.FirebaseFirestore>()));
+        () => _i8.UserRepository(gh<_i5.FirebaseFirestore>()));
     gh.lazySingleton<_i9.IAuthFacade>(() => _i10.FirebaseAuthFacade(
           gh<_i7.IUserRepository>(),
           gh<_i4.FirebaseAuth>(),
@@ -57,8 +58,12 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i11.SignInFormBloc>(
         () => _i11.SignInFormBloc(gh<_i9.IAuthFacade>()));
     gh.factory<_i12.AuthBloc>(() => _i12.AuthBloc(gh<_i9.IAuthFacade>()));
+    gh.factory<_i13.AuthGuard>(() => _i13.AuthGuard(
+          gh<_i9.IAuthFacade>(),
+          gh<_i7.IUserRepository>(),
+        ));
     return this;
   }
 }
 
-class _$FirebaseInjectableModule extends _i13.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i14.FirebaseInjectableModule {}

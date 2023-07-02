@@ -46,6 +46,6 @@ class NumberField extends StatelessWidget {
       ..add(StringProperty('hintText', hintText))
       ..add(DiagnosticsProperty<Icon?>('prefixIcon', prefixIcon))
       ..add(ObjectFlagProperty<String? Function(String? p1)?>.has(
-          'validator', validator));
+          'validator', validator,),);
   }
 }

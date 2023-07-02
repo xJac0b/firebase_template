@@ -49,7 +49,7 @@ class EmailFormField extends StatelessWidget {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty<bool>(
-          'showValidatorMessages', showValidatorMessages))
+          'showValidatorMessages', showValidatorMessages,),)
       ..add(DiagnosticsProperty<EmailAddress>('emailAddress', emailAddress));
   }
 }

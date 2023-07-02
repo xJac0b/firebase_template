@@ -1,5 +1,8 @@
 // ignore: depend_on_referenced_packages
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -32,6 +35,15 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     );
     on<SendPasswordResetEmail>(
       sendPasswordResetEmail,
+    );
+    on<SendVerificationEmail>(
+      sendVerificationEmail,
+    );
+    on<CheckVerificationStatus>(
+      checkVerificationStatus,
+    );
+    on<EmailVerified>(
+      emailVerified,
     );
   }
 
@@ -161,13 +173,57 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     );
 
     final failureOrSuccess = await _authFacade.sendPasswordResetEmail(
-        emailAddress: state.emailAddress);
+      emailAddress: state.emailAddress,
+    );
 
     emit(
       state.copyWith(
         isSubmitting: false,
         authFailureOrSuccessOption: some(failureOrSuccess),
       ),
+    );
+  }
+
+  Future<void> sendVerificationEmail(
+    SendVerificationEmail event,
+    Emitter<SignInFormState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        isSubmitting: true,
+        // verificationEmailAttempts: state.verificationEmailAttempts - 1,
+        authFailureOrSuccessOption: none(),
+      ),
+    );
+    await _authFacade.sendVerificationEmail();
+    emit(
+      state.copyWith(
+        isSubmitting: false,
+        authFailureOrSuccessOption: none(),
+      ),
+    );
+  }
+
+  Future<void> checkVerificationStatus(
+    CheckVerificationStatus event,
+    Emitter<SignInFormState> emit,
+  ) async {
+    var verified = false;
+    Timer.periodic(const Duration(seconds: 3), (timer) async {
+      verified = await _authFacade.isEmailVerified();
+      if (verified) {
+        timer.cancel();
+        add(const EmailVerified());
+      }
+    });
+  }
+
+  Future<void> emailVerified(
+    EmailVerified event,
+    Emitter<SignInFormState> emit,
+  ) async {
+    emit(
+      state.copyWith(authFailureOrSuccessOption: some(right(unit))),
     );
   }
 }

@@ -18,20 +18,19 @@ class ResetPasswordPageView extends StatelessWidget {
             children: [
               DefaultPadding(
                 child: Text(context.l10n.forgotPassword,
-                    style: Theme.of(context).textTheme.headlineLarge),
+                    style: Theme.of(context).textTheme.headlineLarge,),
               ),
               const SizedBox(height: 10),
               DefaultPadding(
                 child: Text(
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.onBackground),
+                      color: Theme.of(context).colorScheme.onBackground,),
                   textAlign: TextAlign.center,
                   context.l10n.resetPasswordInfo,
                 ),
               ),
               const SizedBox(height: 20),
               const ResetPaswordForm(),
-              // Expanded(child: Assets.images.forgotPassword.svg()),
             ],
           ),
         ),
