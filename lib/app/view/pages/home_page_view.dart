@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../app/app.dart';
 import '../../../auth/view/widgets/logout_detector.dart';
-import '../../../widgets/logout_button.dart';
+import '../widgets/logout_button.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({Key? key}) : super(key: key);

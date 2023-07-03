@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../app/app.dart';
 import '../../../../l10n/l10n.dart';
 import '../../../../routes/router.gr.dart';
-import '../../../../widgets/logout_button.dart';
+import '../../../../app/view/widgets/logout_button.dart';
 import '../../../application/sign_in_form/sign_in_form_bloc.dart';
 import '../../widgets/logout_detector.dart';
 import '../../widgets/two_text_parts_button.dart';

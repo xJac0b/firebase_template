@@ -18,25 +18,21 @@ class CustomDropdownButton extends StatelessWidget {
   final String? value;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      child: DropdownButtonFormField(
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        decoration: getInputDecoration(
-          prefixIcon: prefixIcon,
-        ),
-        isExpanded: true,
-        value: value ?? items.first,
-        items: items
-            .map(
-              (e) => DropdownMenuItem(
-                value: e,
-                child: Text(e),
-              ),
-            )
-            .toList(),
-        onChanged: onChanged ?? (_) {},
+    return DropdownButtonFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: getInputDecoration(
+        prefixIcon: prefixIcon,
       ),
+      value: value ?? items.first,
+      items: items
+          .map(
+            (e) => DropdownMenuItem(
+              value: e,
+              child: Text(e),
+            ),
+          )
+          .toList(),
+      onChanged: onChanged ?? (_) {},
     );
   }
 

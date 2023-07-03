@@ -18,19 +18,21 @@ class FillDataForm extends StatelessWidget {
         return Form(
           child: Column(
             children: [
-              const NameFormField(),
+              NameFormField(
+                name: state.displayName,
+                showValidatorMessages: state.showValidatorMessages,
+              ),
               const SizedBox(height: 20),
               GenderDropdown(maleInitial: state.male),
               const SizedBox(height: 20),
               DateField(
-                validator: (_) =>
-                    context.read<FillDataBloc>().state.dateOfBirth.value.fold(
-                          (f) => f.maybeMap(
-                            invalidDate: (_) => context.l10n.invalidDate,
-                            orElse: () => context.l10n.invalidDate,
-                          ),
-                          (_) => null,
-                        ),
+                validator: (_) => state.dateOfBirth.value.fold(
+                  (f) => f.maybeMap(
+                    invalidDate: (_) => context.l10n.invalidDate,
+                    orElse: () => context.l10n.invalidDate,
+                  ),
+                  (_) => null,
+                ),
                 hintText: context.l10n.dateOfBirth,
                 dateChanged: (date) => context
                     .read<FillDataBloc>()
