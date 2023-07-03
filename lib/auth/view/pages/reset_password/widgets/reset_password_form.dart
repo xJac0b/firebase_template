@@ -38,7 +38,7 @@ class ResetPaswordForm extends StatelessWidget {
                   content: Text(context.l10n.resetPasswordSuccess),
                 ),
               );
-              context.router.push(const LoginRoute());
+              context.router.pop();
             },
           ),
         );

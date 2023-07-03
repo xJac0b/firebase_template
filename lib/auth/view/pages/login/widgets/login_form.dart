@@ -42,7 +42,7 @@ class LoginForm extends StatelessWidget {
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());
-              context.router.push(const HomeRoute());
+              context.router.replace(const HomeRoute());
             },
           ),
         );
