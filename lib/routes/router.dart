@@ -35,7 +35,6 @@ class AppRouter extends $AppRouter {
           page: FillDataRoute.page,
           keepHistory: false,
         ),
-        AutoRoute(path: '/counter', page: CounterRoute.page),
         RedirectRoute(path: '*', redirectTo: '/'),
       ];
 }

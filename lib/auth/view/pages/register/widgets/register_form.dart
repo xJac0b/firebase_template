@@ -8,7 +8,7 @@ import '../../../../application/auth/auth_bloc.dart';
 import '../../../../application/sign_in_form/sign_in_form_bloc.dart';
 import '../../../widgets/email_form_field.dart';
 import '../../../widgets/password_form_field.dart';
-import '../../../widgets/switch_form_button.dart';
+import '../../../widgets/two_text_parts_button.dart';
 import '../../../widgets/wide_button.dart';
 
 class RegisterForm extends StatelessWidget {
@@ -39,7 +39,8 @@ class RegisterForm extends StatelessWidget {
             },
             (_) {
               context.router.push(
-                  VerificationRoute(email: state.emailAddress.getOrCrash()),);
+                VerificationRoute(email: state.emailAddress.getOrCrash()),
+              );
               context.read<AuthBloc>().add(
                     const AuthEvent.authCheckRequested(),
                   );
@@ -83,10 +84,10 @@ class RegisterForm extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                SwitchFormButton(
+                TwoTextPartsButton(
                   leadingText: context.l10n.alreadyRegistered,
                   buttonText: context.l10n.loginButton,
-                  route: const LoginRoute(),
+                  onTap: () => context.router.replace(const LoginRoute()),
                 )
               ],
             ),

@@ -9,6 +9,7 @@ import '../../../../routes/router.gr.dart';
 import '../../../../widgets/logout_button.dart';
 import '../../../application/sign_in_form/sign_in_form_bloc.dart';
 import '../../widgets/logout_detector.dart';
+import '../../widgets/two_text_parts_button.dart';
 import '../../widgets/wide_button.dart';
 
 class VerificationPageView extends StatelessWidget {
@@ -63,11 +64,12 @@ class VerificationPageView extends StatelessWidget {
                               ),
                             ],
                           ),
-                          TextButton(
-                            onPressed: () => context.read<SignInFormBloc>().add(
+                          TwoTextPartsButton(
+                            onTap: () => context.read<SignInFormBloc>().add(
                                   const SignInFormEvent.sendVerificationEmail(),
                                 ),
-                            child: Text(context.l10n.verifyEmailResend),
+                            leadingText: context.l10n.verifyEmailResend1,
+                            buttonText: context.l10n.verifyEmailResend2,
                           ),
                           WideButton(
                             label: context.l10n.check,

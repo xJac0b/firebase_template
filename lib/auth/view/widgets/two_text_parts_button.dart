@@ -1,17 +1,16 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class SwitchFormButton extends StatelessWidget {
-  const SwitchFormButton({
+class TwoTextPartsButton extends StatelessWidget {
+  const TwoTextPartsButton({
     Key? key,
     required this.buttonText,
     required this.leadingText,
-    required this.route,
+    required this.onTap,
   }) : super(key: key);
   final String leadingText, buttonText;
-  final PageRouteInfo route;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +29,7 @@ class SwitchFormButton extends StatelessWidget {
               color: colors.primary,
               fontWeight: FontWeight.bold,
             ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                context.router.push(route);
-              },
+            recognizer: TapGestureRecognizer()..onTap = onTap,
           )
         ],
       ),
@@ -46,6 +42,6 @@ class SwitchFormButton extends StatelessWidget {
     properties
       ..add(StringProperty('buttonText', buttonText))
       ..add(StringProperty('leadingText', leadingText))
-      ..add(DiagnosticsProperty<PageRouteInfo>('route', route));
+      ..add(ObjectFlagProperty<Function()?>.has('onTap', onTap));
   }
 }
