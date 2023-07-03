@@ -214,6 +214,10 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   ) async {
     var verified = false;
     Timer.periodic(const Duration(seconds: 3), (timer) async {
+      if (_authFacade.getSignedInUser().isNone()) {
+        timer.cancel();
+        return;
+      }
       verified = await _authFacade.isEmailVerified();
       if (verified) {
         timer.cancel();
