@@ -2,10 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'app/app.dart';
-import 'bootstrap.dart';
-import 'firebase_options.dart';
-import 'injection.dart';
+import './core/firebase_options.dart';
+import 'core/app.dart';
+import 'core/bootstrap.dart';
+import 'core/injection/injection.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
