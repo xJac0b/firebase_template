@@ -27,7 +27,7 @@ class FillDataPageView extends StatelessWidget {
                   }
                 },
                 builder: (context, state) {
-                  if (state.isSubmitting) {
+                  if (state.isSubmitting || state.success) {
                     return const CircularProgressIndicator();
                   }
                   return Column(

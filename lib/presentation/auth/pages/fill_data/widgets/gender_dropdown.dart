@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../application/auth/fill_data/fill_data_bloc.dart';
 import '../../../../../l10n/l10n.dart';
 import '../../../widgets/custom_dropdown_button.dart';
 
@@ -36,7 +38,11 @@ class _GenderDropdownState extends State<GenderDropdown> {
           selected = el;
         });
         if (el != null) {
-          //new value
+          context.read<FillDataBloc>().add(
+                FillDataEvent.genderChanged(
+                  male: el == context.l10n.genderMale,
+                ),
+              );
         }
       },
     );
