@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/utils/extensions.dart';
+
 class TwoTextPartsButton extends StatelessWidget {
   const TwoTextPartsButton({
     Key? key,
@@ -14,7 +16,7 @@ class TwoTextPartsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
+    final colors = context.colors;
     return RichText(
       text: TextSpan(
         children: [

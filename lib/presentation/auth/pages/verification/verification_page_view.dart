@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../../core/routes/router.gr.dart';
+import '../../../../core/utils/extensions.dart';
 import '../../../../l10n/l10n.dart';
 import '../../../shared/widgets/default_padding.dart';
 import '../../../shared/widgets/logout_button.dart';
@@ -53,12 +54,11 @@ class VerificationPageView extends StatelessWidget {
                             children: [
                               Text(
                                 context.l10n.verifyEmailHeading,
-                                style:
-                                    Theme.of(context).textTheme.headlineLarge,
+                                style: context.textTheme.headlineLarge,
                               ),
                               const SizedBox(height: 20),
                               Text(
-                                style: Theme.of(context).textTheme.titleLarge,
+                                style: context.textTheme.titleLarge,
                                 textAlign: TextAlign.center,
                                 context.l10n.verifyEmailInfo(email),
                               ),

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/auth/fill_data/fill_data_bloc.dart';
 import '../../../../core/routes/router.gr.dart';
+import '../../../../core/utils/extensions.dart';
 import '../../../../l10n/l10n.dart';
 import '../../../shared/widgets/default_padding.dart';
 import 'widgets/fill_data_form.dart';
@@ -35,7 +36,7 @@ class FillDataPageView extends StatelessWidget {
                       DefaultPadding(
                         child: Text(
                           context.l10n.fillDataHeading,
-                          style: Theme.of(context).textTheme.headlineLarge,
+                          style: context.textTheme.headlineLarge,
                         ),
                       ),
                       const SizedBox(height: 20),

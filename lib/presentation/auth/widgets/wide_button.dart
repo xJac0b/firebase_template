@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/utils/extensions.dart';
+
 class WideButton extends StatelessWidget {
   const WideButton({super.key, required this.label, required this.onPressed});
   final String label;
@@ -8,14 +10,15 @@ class WideButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
-          minimumSize: const Size.fromHeight(50),
+      style: ElevatedButton.styleFrom(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        onPressed: onPressed,
-        child: Text(label, style: Theme.of(context).textTheme.labelLarge),);
+        minimumSize: const Size.fromHeight(50),
+      ),
+      onPressed: onPressed,
+      child: Text(label, style: context.textTheme.labelLarge),
+    );
   }
 
   @override
