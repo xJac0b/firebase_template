@@ -64,9 +64,10 @@ class UserRepository implements IUserRepository {
   @override
   Future<Either<UserFailure, Unit>> update(User user) async {
     try {
+      
       final userDoc = await _firestore.userDocument();
       final userDto = UserDto.fromDomain(user);
-
+      
       await userDoc.update(userDto.toJson());
 
       return right(unit);

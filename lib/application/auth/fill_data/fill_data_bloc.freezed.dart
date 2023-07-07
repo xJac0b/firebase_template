@@ -21,6 +21,7 @@ mixin _$FillDataEvent {
     required TResult Function(String name) nameChanged,
     required TResult Function(bool male) genderChanged,
     required TResult Function(DateTime date) dateOfBirthChanged,
+    required TResult Function() selectPicture,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$FillDataEvent {
     TResult? Function(String name)? nameChanged,
     TResult? Function(bool male)? genderChanged,
     TResult? Function(DateTime date)? dateOfBirthChanged,
+    TResult? Function()? selectPicture,
     TResult? Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,32 +39,36 @@ mixin _$FillDataEvent {
     TResult Function(String name)? nameChanged,
     TResult Function(bool male)? genderChanged,
     TResult Function(DateTime date)? dateOfBirthChanged,
+    TResult Function()? selectPicture,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GenderChanged value) genderChanged,
-    required TResult Function(DateOfBirthChanged value) dateOfBirthChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_GenderChanged value) genderChanged,
+    required TResult Function(_DateOfBirthChanged value) dateOfBirthChanged,
+    required TResult Function(_SelectPicture value) selectPicture,
+    required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GenderChanged value)? genderChanged,
-    TResult? Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult? Function(Saved value)? saved,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_GenderChanged value)? genderChanged,
+    TResult? Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult? Function(_SelectPicture value)? selectPicture,
+    TResult? Function(_Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GenderChanged value)? genderChanged,
-    TResult Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_GenderChanged value)? genderChanged,
+    TResult Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult Function(_SelectPicture value)? selectPicture,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,20 +93,20 @@ class _$FillDataEventCopyWithImpl<$Res, $Val extends FillDataEvent>
 }
 
 /// @nodoc
-abstract class _$$NameChangedCopyWith<$Res> {
-  factory _$$NameChangedCopyWith(
-          _$NameChanged value, $Res Function(_$NameChanged) then) =
-      __$$NameChangedCopyWithImpl<$Res>;
+abstract class _$$_NameChangedCopyWith<$Res> {
+  factory _$$_NameChangedCopyWith(
+          _$_NameChanged value, $Res Function(_$_NameChanged) then) =
+      __$$_NameChangedCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$NameChangedCopyWithImpl<$Res>
-    extends _$FillDataEventCopyWithImpl<$Res, _$NameChanged>
-    implements _$$NameChangedCopyWith<$Res> {
-  __$$NameChangedCopyWithImpl(
-      _$NameChanged _value, $Res Function(_$NameChanged) _then)
+class __$$_NameChangedCopyWithImpl<$Res>
+    extends _$FillDataEventCopyWithImpl<$Res, _$_NameChanged>
+    implements _$$_NameChangedCopyWith<$Res> {
+  __$$_NameChangedCopyWithImpl(
+      _$_NameChanged _value, $Res Function(_$_NameChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +114,7 @@ class __$$NameChangedCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
   }) {
-    return _then(_$NameChanged(
+    return _then(_$_NameChanged(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -119,8 +125,8 @@ class __$$NameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NameChanged implements NameChanged {
-  const _$NameChanged({required this.name});
+class _$_NameChanged implements _NameChanged {
+  const _$_NameChanged({required this.name});
 
   @override
   final String name;
@@ -134,7 +140,7 @@ class _$NameChanged implements NameChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NameChanged &&
+            other is _$_NameChanged &&
             (identical(other.name, name) || other.name == name));
   }
 
@@ -144,8 +150,8 @@ class _$NameChanged implements NameChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NameChangedCopyWith<_$NameChanged> get copyWith =>
-      __$$NameChangedCopyWithImpl<_$NameChanged>(this, _$identity);
+  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
+      __$$_NameChangedCopyWithImpl<_$_NameChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -153,6 +159,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(bool male) genderChanged,
     required TResult Function(DateTime date) dateOfBirthChanged,
+    required TResult Function() selectPicture,
     required TResult Function() saved,
   }) {
     return nameChanged(name);
@@ -164,6 +171,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(String name)? nameChanged,
     TResult? Function(bool male)? genderChanged,
     TResult? Function(DateTime date)? dateOfBirthChanged,
+    TResult? Function()? selectPicture,
     TResult? Function()? saved,
   }) {
     return nameChanged?.call(name);
@@ -175,6 +183,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(bool male)? genderChanged,
     TResult Function(DateTime date)? dateOfBirthChanged,
+    TResult Function()? selectPicture,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -187,10 +196,11 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GenderChanged value) genderChanged,
-    required TResult Function(DateOfBirthChanged value) dateOfBirthChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_GenderChanged value) genderChanged,
+    required TResult Function(_DateOfBirthChanged value) dateOfBirthChanged,
+    required TResult Function(_SelectPicture value) selectPicture,
+    required TResult Function(_Saved value) saved,
   }) {
     return nameChanged(this);
   }
@@ -198,10 +208,11 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GenderChanged value)? genderChanged,
-    TResult? Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult? Function(Saved value)? saved,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_GenderChanged value)? genderChanged,
+    TResult? Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult? Function(_SelectPicture value)? selectPicture,
+    TResult? Function(_Saved value)? saved,
   }) {
     return nameChanged?.call(this);
   }
@@ -209,10 +220,11 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GenderChanged value)? genderChanged,
-    TResult Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_GenderChanged value)? genderChanged,
+    TResult Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult Function(_SelectPicture value)? selectPicture,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -222,30 +234,30 @@ class _$NameChanged implements NameChanged {
   }
 }
 
-abstract class NameChanged implements FillDataEvent {
-  const factory NameChanged({required final String name}) = _$NameChanged;
+abstract class _NameChanged implements FillDataEvent {
+  const factory _NameChanged({required final String name}) = _$_NameChanged;
 
   String get name;
   @JsonKey(ignore: true)
-  _$$NameChangedCopyWith<_$NameChanged> get copyWith =>
+  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GenderChangedCopyWith<$Res> {
-  factory _$$GenderChangedCopyWith(
-          _$GenderChanged value, $Res Function(_$GenderChanged) then) =
-      __$$GenderChangedCopyWithImpl<$Res>;
+abstract class _$$_GenderChangedCopyWith<$Res> {
+  factory _$$_GenderChangedCopyWith(
+          _$_GenderChanged value, $Res Function(_$_GenderChanged) then) =
+      __$$_GenderChangedCopyWithImpl<$Res>;
   @useResult
   $Res call({bool male});
 }
 
 /// @nodoc
-class __$$GenderChangedCopyWithImpl<$Res>
-    extends _$FillDataEventCopyWithImpl<$Res, _$GenderChanged>
-    implements _$$GenderChangedCopyWith<$Res> {
-  __$$GenderChangedCopyWithImpl(
-      _$GenderChanged _value, $Res Function(_$GenderChanged) _then)
+class __$$_GenderChangedCopyWithImpl<$Res>
+    extends _$FillDataEventCopyWithImpl<$Res, _$_GenderChanged>
+    implements _$$_GenderChangedCopyWith<$Res> {
+  __$$_GenderChangedCopyWithImpl(
+      _$_GenderChanged _value, $Res Function(_$_GenderChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -253,7 +265,7 @@ class __$$GenderChangedCopyWithImpl<$Res>
   $Res call({
     Object? male = null,
   }) {
-    return _then(_$GenderChanged(
+    return _then(_$_GenderChanged(
       male: null == male
           ? _value.male
           : male // ignore: cast_nullable_to_non_nullable
@@ -264,8 +276,8 @@ class __$$GenderChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GenderChanged implements GenderChanged {
-  const _$GenderChanged({required this.male});
+class _$_GenderChanged implements _GenderChanged {
+  const _$_GenderChanged({required this.male});
 
   @override
   final bool male;
@@ -279,7 +291,7 @@ class _$GenderChanged implements GenderChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GenderChanged &&
+            other is _$_GenderChanged &&
             (identical(other.male, male) || other.male == male));
   }
 
@@ -289,8 +301,8 @@ class _$GenderChanged implements GenderChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GenderChangedCopyWith<_$GenderChanged> get copyWith =>
-      __$$GenderChangedCopyWithImpl<_$GenderChanged>(this, _$identity);
+  _$$_GenderChangedCopyWith<_$_GenderChanged> get copyWith =>
+      __$$_GenderChangedCopyWithImpl<_$_GenderChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -298,6 +310,7 @@ class _$GenderChanged implements GenderChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(bool male) genderChanged,
     required TResult Function(DateTime date) dateOfBirthChanged,
+    required TResult Function() selectPicture,
     required TResult Function() saved,
   }) {
     return genderChanged(male);
@@ -309,6 +322,7 @@ class _$GenderChanged implements GenderChanged {
     TResult? Function(String name)? nameChanged,
     TResult? Function(bool male)? genderChanged,
     TResult? Function(DateTime date)? dateOfBirthChanged,
+    TResult? Function()? selectPicture,
     TResult? Function()? saved,
   }) {
     return genderChanged?.call(male);
@@ -320,6 +334,7 @@ class _$GenderChanged implements GenderChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(bool male)? genderChanged,
     TResult Function(DateTime date)? dateOfBirthChanged,
+    TResult Function()? selectPicture,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -332,10 +347,11 @@ class _$GenderChanged implements GenderChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GenderChanged value) genderChanged,
-    required TResult Function(DateOfBirthChanged value) dateOfBirthChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_GenderChanged value) genderChanged,
+    required TResult Function(_DateOfBirthChanged value) dateOfBirthChanged,
+    required TResult Function(_SelectPicture value) selectPicture,
+    required TResult Function(_Saved value) saved,
   }) {
     return genderChanged(this);
   }
@@ -343,10 +359,11 @@ class _$GenderChanged implements GenderChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GenderChanged value)? genderChanged,
-    TResult? Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult? Function(Saved value)? saved,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_GenderChanged value)? genderChanged,
+    TResult? Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult? Function(_SelectPicture value)? selectPicture,
+    TResult? Function(_Saved value)? saved,
   }) {
     return genderChanged?.call(this);
   }
@@ -354,10 +371,11 @@ class _$GenderChanged implements GenderChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GenderChanged value)? genderChanged,
-    TResult Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_GenderChanged value)? genderChanged,
+    TResult Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult Function(_SelectPicture value)? selectPicture,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (genderChanged != null) {
@@ -367,30 +385,30 @@ class _$GenderChanged implements GenderChanged {
   }
 }
 
-abstract class GenderChanged implements FillDataEvent {
-  const factory GenderChanged({required final bool male}) = _$GenderChanged;
+abstract class _GenderChanged implements FillDataEvent {
+  const factory _GenderChanged({required final bool male}) = _$_GenderChanged;
 
   bool get male;
   @JsonKey(ignore: true)
-  _$$GenderChangedCopyWith<_$GenderChanged> get copyWith =>
+  _$$_GenderChangedCopyWith<_$_GenderChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DateOfBirthChangedCopyWith<$Res> {
-  factory _$$DateOfBirthChangedCopyWith(_$DateOfBirthChanged value,
-          $Res Function(_$DateOfBirthChanged) then) =
-      __$$DateOfBirthChangedCopyWithImpl<$Res>;
+abstract class _$$_DateOfBirthChangedCopyWith<$Res> {
+  factory _$$_DateOfBirthChangedCopyWith(_$_DateOfBirthChanged value,
+          $Res Function(_$_DateOfBirthChanged) then) =
+      __$$_DateOfBirthChangedCopyWithImpl<$Res>;
   @useResult
   $Res call({DateTime date});
 }
 
 /// @nodoc
-class __$$DateOfBirthChangedCopyWithImpl<$Res>
-    extends _$FillDataEventCopyWithImpl<$Res, _$DateOfBirthChanged>
-    implements _$$DateOfBirthChangedCopyWith<$Res> {
-  __$$DateOfBirthChangedCopyWithImpl(
-      _$DateOfBirthChanged _value, $Res Function(_$DateOfBirthChanged) _then)
+class __$$_DateOfBirthChangedCopyWithImpl<$Res>
+    extends _$FillDataEventCopyWithImpl<$Res, _$_DateOfBirthChanged>
+    implements _$$_DateOfBirthChangedCopyWith<$Res> {
+  __$$_DateOfBirthChangedCopyWithImpl(
+      _$_DateOfBirthChanged _value, $Res Function(_$_DateOfBirthChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -398,7 +416,7 @@ class __$$DateOfBirthChangedCopyWithImpl<$Res>
   $Res call({
     Object? date = null,
   }) {
-    return _then(_$DateOfBirthChanged(
+    return _then(_$_DateOfBirthChanged(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -409,8 +427,8 @@ class __$$DateOfBirthChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DateOfBirthChanged implements DateOfBirthChanged {
-  const _$DateOfBirthChanged({required this.date});
+class _$_DateOfBirthChanged implements _DateOfBirthChanged {
+  const _$_DateOfBirthChanged({required this.date});
 
   @override
   final DateTime date;
@@ -424,7 +442,7 @@ class _$DateOfBirthChanged implements DateOfBirthChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DateOfBirthChanged &&
+            other is _$_DateOfBirthChanged &&
             (identical(other.date, date) || other.date == date));
   }
 
@@ -434,8 +452,8 @@ class _$DateOfBirthChanged implements DateOfBirthChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DateOfBirthChangedCopyWith<_$DateOfBirthChanged> get copyWith =>
-      __$$DateOfBirthChangedCopyWithImpl<_$DateOfBirthChanged>(
+  _$$_DateOfBirthChangedCopyWith<_$_DateOfBirthChanged> get copyWith =>
+      __$$_DateOfBirthChangedCopyWithImpl<_$_DateOfBirthChanged>(
           this, _$identity);
 
   @override
@@ -444,6 +462,7 @@ class _$DateOfBirthChanged implements DateOfBirthChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(bool male) genderChanged,
     required TResult Function(DateTime date) dateOfBirthChanged,
+    required TResult Function() selectPicture,
     required TResult Function() saved,
   }) {
     return dateOfBirthChanged(date);
@@ -455,6 +474,7 @@ class _$DateOfBirthChanged implements DateOfBirthChanged {
     TResult? Function(String name)? nameChanged,
     TResult? Function(bool male)? genderChanged,
     TResult? Function(DateTime date)? dateOfBirthChanged,
+    TResult? Function()? selectPicture,
     TResult? Function()? saved,
   }) {
     return dateOfBirthChanged?.call(date);
@@ -466,6 +486,7 @@ class _$DateOfBirthChanged implements DateOfBirthChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(bool male)? genderChanged,
     TResult Function(DateTime date)? dateOfBirthChanged,
+    TResult Function()? selectPicture,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -478,10 +499,11 @@ class _$DateOfBirthChanged implements DateOfBirthChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GenderChanged value) genderChanged,
-    required TResult Function(DateOfBirthChanged value) dateOfBirthChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_GenderChanged value) genderChanged,
+    required TResult Function(_DateOfBirthChanged value) dateOfBirthChanged,
+    required TResult Function(_SelectPicture value) selectPicture,
+    required TResult Function(_Saved value) saved,
   }) {
     return dateOfBirthChanged(this);
   }
@@ -489,10 +511,11 @@ class _$DateOfBirthChanged implements DateOfBirthChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GenderChanged value)? genderChanged,
-    TResult? Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult? Function(Saved value)? saved,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_GenderChanged value)? genderChanged,
+    TResult? Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult? Function(_SelectPicture value)? selectPicture,
+    TResult? Function(_Saved value)? saved,
   }) {
     return dateOfBirthChanged?.call(this);
   }
@@ -500,10 +523,11 @@ class _$DateOfBirthChanged implements DateOfBirthChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GenderChanged value)? genderChanged,
-    TResult Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_GenderChanged value)? genderChanged,
+    TResult Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult Function(_SelectPicture value)? selectPicture,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (dateOfBirthChanged != null) {
@@ -513,44 +537,46 @@ class _$DateOfBirthChanged implements DateOfBirthChanged {
   }
 }
 
-abstract class DateOfBirthChanged implements FillDataEvent {
-  const factory DateOfBirthChanged({required final DateTime date}) =
-      _$DateOfBirthChanged;
+abstract class _DateOfBirthChanged implements FillDataEvent {
+  const factory _DateOfBirthChanged({required final DateTime date}) =
+      _$_DateOfBirthChanged;
 
   DateTime get date;
   @JsonKey(ignore: true)
-  _$$DateOfBirthChangedCopyWith<_$DateOfBirthChanged> get copyWith =>
+  _$$_DateOfBirthChangedCopyWith<_$_DateOfBirthChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SavedCopyWith<$Res> {
-  factory _$$SavedCopyWith(_$Saved value, $Res Function(_$Saved) then) =
-      __$$SavedCopyWithImpl<$Res>;
+abstract class _$$_SelectPictureCopyWith<$Res> {
+  factory _$$_SelectPictureCopyWith(
+          _$_SelectPicture value, $Res Function(_$_SelectPicture) then) =
+      __$$_SelectPictureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SavedCopyWithImpl<$Res>
-    extends _$FillDataEventCopyWithImpl<$Res, _$Saved>
-    implements _$$SavedCopyWith<$Res> {
-  __$$SavedCopyWithImpl(_$Saved _value, $Res Function(_$Saved) _then)
+class __$$_SelectPictureCopyWithImpl<$Res>
+    extends _$FillDataEventCopyWithImpl<$Res, _$_SelectPicture>
+    implements _$$_SelectPictureCopyWith<$Res> {
+  __$$_SelectPictureCopyWithImpl(
+      _$_SelectPicture _value, $Res Function(_$_SelectPicture) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Saved implements Saved {
-  const _$Saved();
+class _$_SelectPicture implements _SelectPicture {
+  const _$_SelectPicture();
 
   @override
   String toString() {
-    return 'FillDataEvent.saved()';
+    return 'FillDataEvent.selectPicture()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Saved);
+        (other.runtimeType == runtimeType && other is _$_SelectPicture);
   }
 
   @override
@@ -562,6 +588,125 @@ class _$Saved implements Saved {
     required TResult Function(String name) nameChanged,
     required TResult Function(bool male) genderChanged,
     required TResult Function(DateTime date) dateOfBirthChanged,
+    required TResult Function() selectPicture,
+    required TResult Function() saved,
+  }) {
+    return selectPicture();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(bool male)? genderChanged,
+    TResult? Function(DateTime date)? dateOfBirthChanged,
+    TResult? Function()? selectPicture,
+    TResult? Function()? saved,
+  }) {
+    return selectPicture?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? nameChanged,
+    TResult Function(bool male)? genderChanged,
+    TResult Function(DateTime date)? dateOfBirthChanged,
+    TResult Function()? selectPicture,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (selectPicture != null) {
+      return selectPicture();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_GenderChanged value) genderChanged,
+    required TResult Function(_DateOfBirthChanged value) dateOfBirthChanged,
+    required TResult Function(_SelectPicture value) selectPicture,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return selectPicture(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_GenderChanged value)? genderChanged,
+    TResult? Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult? Function(_SelectPicture value)? selectPicture,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return selectPicture?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_GenderChanged value)? genderChanged,
+    TResult Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult Function(_SelectPicture value)? selectPicture,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (selectPicture != null) {
+      return selectPicture(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectPicture implements FillDataEvent {
+  const factory _SelectPicture() = _$_SelectPicture;
+}
+
+/// @nodoc
+abstract class _$$_SavedCopyWith<$Res> {
+  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
+      __$$_SavedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SavedCopyWithImpl<$Res>
+    extends _$FillDataEventCopyWithImpl<$Res, _$_Saved>
+    implements _$$_SavedCopyWith<$Res> {
+  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Saved implements _Saved {
+  const _$_Saved();
+
+  @override
+  String toString() {
+    return 'FillDataEvent.saved()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Saved);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) nameChanged,
+    required TResult Function(bool male) genderChanged,
+    required TResult Function(DateTime date) dateOfBirthChanged,
+    required TResult Function() selectPicture,
     required TResult Function() saved,
   }) {
     return saved();
@@ -573,6 +718,7 @@ class _$Saved implements Saved {
     TResult? Function(String name)? nameChanged,
     TResult? Function(bool male)? genderChanged,
     TResult? Function(DateTime date)? dateOfBirthChanged,
+    TResult? Function()? selectPicture,
     TResult? Function()? saved,
   }) {
     return saved?.call();
@@ -584,6 +730,7 @@ class _$Saved implements Saved {
     TResult Function(String name)? nameChanged,
     TResult Function(bool male)? genderChanged,
     TResult Function(DateTime date)? dateOfBirthChanged,
+    TResult Function()? selectPicture,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -596,10 +743,11 @@ class _$Saved implements Saved {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GenderChanged value) genderChanged,
-    required TResult Function(DateOfBirthChanged value) dateOfBirthChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_GenderChanged value) genderChanged,
+    required TResult Function(_DateOfBirthChanged value) dateOfBirthChanged,
+    required TResult Function(_SelectPicture value) selectPicture,
+    required TResult Function(_Saved value) saved,
   }) {
     return saved(this);
   }
@@ -607,10 +755,11 @@ class _$Saved implements Saved {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GenderChanged value)? genderChanged,
-    TResult? Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult? Function(Saved value)? saved,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_GenderChanged value)? genderChanged,
+    TResult? Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult? Function(_SelectPicture value)? selectPicture,
+    TResult? Function(_Saved value)? saved,
   }) {
     return saved?.call(this);
   }
@@ -618,10 +767,11 @@ class _$Saved implements Saved {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GenderChanged value)? genderChanged,
-    TResult Function(DateOfBirthChanged value)? dateOfBirthChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_GenderChanged value)? genderChanged,
+    TResult Function(_DateOfBirthChanged value)? dateOfBirthChanged,
+    TResult Function(_SelectPicture value)? selectPicture,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (saved != null) {
@@ -631,8 +781,8 @@ class _$Saved implements Saved {
   }
 }
 
-abstract class Saved implements FillDataEvent {
-  const factory Saved() = _$Saved;
+abstract class _Saved implements FillDataEvent {
+  const factory _Saved() = _$_Saved;
 }
 
 /// @nodoc
@@ -640,6 +790,7 @@ mixin _$FillDataState {
   DateOfBirth get dateOfBirth => throw _privateConstructorUsedError;
   bool get male => throw _privateConstructorUsedError;
   DisplayName get displayName => throw _privateConstructorUsedError;
+  PlatformFile? get picture => throw _privateConstructorUsedError;
   bool get showValidatorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get success => throw _privateConstructorUsedError;
@@ -659,6 +810,7 @@ abstract class $FillDataStateCopyWith<$Res> {
       {DateOfBirth dateOfBirth,
       bool male,
       DisplayName displayName,
+      PlatformFile? picture,
       bool showValidatorMessages,
       bool isSubmitting,
       bool success});
@@ -680,6 +832,7 @@ class _$FillDataStateCopyWithImpl<$Res, $Val extends FillDataState>
     Object? dateOfBirth = null,
     Object? male = null,
     Object? displayName = null,
+    Object? picture = freezed,
     Object? showValidatorMessages = null,
     Object? isSubmitting = null,
     Object? success = null,
@@ -697,6 +850,10 @@ class _$FillDataStateCopyWithImpl<$Res, $Val extends FillDataState>
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as DisplayName,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as PlatformFile?,
       showValidatorMessages: null == showValidatorMessages
           ? _value.showValidatorMessages
           : showValidatorMessages // ignore: cast_nullable_to_non_nullable
@@ -725,6 +882,7 @@ abstract class _$$_FillDataStateCopyWith<$Res>
       {DateOfBirth dateOfBirth,
       bool male,
       DisplayName displayName,
+      PlatformFile? picture,
       bool showValidatorMessages,
       bool isSubmitting,
       bool success});
@@ -744,6 +902,7 @@ class __$$_FillDataStateCopyWithImpl<$Res>
     Object? dateOfBirth = null,
     Object? male = null,
     Object? displayName = null,
+    Object? picture = freezed,
     Object? showValidatorMessages = null,
     Object? isSubmitting = null,
     Object? success = null,
@@ -761,6 +920,10 @@ class __$$_FillDataStateCopyWithImpl<$Res>
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as DisplayName,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as PlatformFile?,
       showValidatorMessages: null == showValidatorMessages
           ? _value.showValidatorMessages
           : showValidatorMessages // ignore: cast_nullable_to_non_nullable
@@ -784,6 +947,7 @@ class _$_FillDataState extends _FillDataState {
       {required this.dateOfBirth,
       required this.male,
       required this.displayName,
+      this.picture,
       required this.showValidatorMessages,
       required this.isSubmitting,
       required this.success})
@@ -796,6 +960,8 @@ class _$_FillDataState extends _FillDataState {
   @override
   final DisplayName displayName;
   @override
+  final PlatformFile? picture;
+  @override
   final bool showValidatorMessages;
   @override
   final bool isSubmitting;
@@ -804,7 +970,7 @@ class _$_FillDataState extends _FillDataState {
 
   @override
   String toString() {
-    return 'FillDataState(dateOfBirth: $dateOfBirth, male: $male, displayName: $displayName, showValidatorMessages: $showValidatorMessages, isSubmitting: $isSubmitting, success: $success)';
+    return 'FillDataState(dateOfBirth: $dateOfBirth, male: $male, displayName: $displayName, picture: $picture, showValidatorMessages: $showValidatorMessages, isSubmitting: $isSubmitting, success: $success)';
   }
 
   @override
@@ -817,6 +983,7 @@ class _$_FillDataState extends _FillDataState {
             (identical(other.male, male) || other.male == male) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
             (identical(other.showValidatorMessages, showValidatorMessages) ||
                 other.showValidatorMessages == showValidatorMessages) &&
             (identical(other.isSubmitting, isSubmitting) ||
@@ -826,7 +993,7 @@ class _$_FillDataState extends _FillDataState {
 
   @override
   int get hashCode => Object.hash(runtimeType, dateOfBirth, male, displayName,
-      showValidatorMessages, isSubmitting, success);
+      picture, showValidatorMessages, isSubmitting, success);
 
   @JsonKey(ignore: true)
   @override
@@ -840,6 +1007,7 @@ abstract class _FillDataState extends FillDataState {
       {required final DateOfBirth dateOfBirth,
       required final bool male,
       required final DisplayName displayName,
+      final PlatformFile? picture,
       required final bool showValidatorMessages,
       required final bool isSubmitting,
       required final bool success}) = _$_FillDataState;
@@ -851,6 +1019,8 @@ abstract class _FillDataState extends FillDataState {
   bool get male;
   @override
   DisplayName get displayName;
+  @override
+  PlatformFile? get picture;
   @override
   bool get showValidatorMessages;
   @override

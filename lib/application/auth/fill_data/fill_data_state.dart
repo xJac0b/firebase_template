@@ -6,6 +6,7 @@ class FillDataState with _$FillDataState {
     required DateOfBirth dateOfBirth,
     required bool male,
     required DisplayName displayName,
+    PlatformFile? picture,
     required bool showValidatorMessages,
     required bool isSubmitting,
     required bool success,

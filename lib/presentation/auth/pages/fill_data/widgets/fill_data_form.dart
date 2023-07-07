@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../application/auth/fill_data/fill_data_bloc.dart';
 import '../../../../../l10n/l10n.dart';
 import '../../../widgets/wide_button.dart';
+import 'avatar_upload.dart';
 import 'date_field.dart';
 import 'gender_dropdown.dart';
 import 'name_form_field.dart';
@@ -18,6 +21,14 @@ class FillDataForm extends StatelessWidget {
         return Form(
           child: Column(
             children: [
+              AvatarUpload(
+                image: state.picture != null
+                    ? Image.file(File(state.picture!.path!))
+                    : null,
+                onPressed: () => context.read<FillDataBloc>().add(
+                      const FillDataEvent.selectPicture(),
+                    ),
+              ),
               NameFormField(
                 name: state.displayName,
                 showValidatorMessages: state.showValidatorMessages,
