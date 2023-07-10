@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/auth/i_auth_facade.dart';
 import '../../../domain/auth/user/i_user_repository.dart';
 import '../../../domain/auth/value_objects.dart';
-import '../../../infrastructure/firebase_user_mapper.dart';
+import '../../../domain/storage/i_storage_repository.dart';
+import '../../../infrastructure/shared/firebase_user_mapper.dart';
 
 part 'fill_data_bloc.freezed.dart';
 part 'fill_data_event.dart';
@@ -21,7 +21,7 @@ class FillDataBloc extends Bloc<FillDataEvent, FillDataState> {
   FillDataBloc(
     this._userRepository,
     this._authFacade,
-    this._firebaseStorage,
+    this._storageRepository,
   ) : super(FillDataState.initial()) {
     on<_NameChanged>(changeName);
     on<_GenderChanged>(changeGender);
@@ -32,7 +32,7 @@ class FillDataBloc extends Bloc<FillDataEvent, FillDataState> {
 
   final IUserRepository _userRepository;
   final IAuthFacade _authFacade;
-  final FirebaseStorage _firebaseStorage;
+  final IStorageRepository _storageRepository;
 
   void changeName(_NameChanged event, Emitter<FillDataState> emit) {
     emit(
@@ -86,7 +86,9 @@ class FillDataBloc extends Bloc<FillDataEvent, FillDataState> {
 
       final _user = _authFacade.getSignedInUser();
       await _user.fold(() => null, (t) async {
-        await t.updatePhotoURL(await uploadAvatar(t));
+        await _storageRepository.uploadAvatar(
+            t.uid, File(state.picture!.path!),);
+        await t.updatePhotoURL(await _storageRepository.downloadAvatar(t.uid));
         await t.updateDisplayName(state.displayName.getOrCrash());
         final user = t.toDomain().copyWith(
               filled: true,
@@ -104,13 +106,5 @@ class FillDataBloc extends Bloc<FillDataEvent, FillDataState> {
         showValidatorMessages: true,
       ),
     );
-  }
-
-  Future<String> uploadAvatar(User t) async {
-    final path = 'avatars/${t.uid}.png';
-    final file = File(state.picture!.path!);
-    final ref = _firebaseStorage.ref().child(path);
-    await ref.putFile(file);
-    return path;
   }
 }

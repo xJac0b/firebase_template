@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/auth/user/user.dart';
-import '../../../domain/auth/value_objects.dart';
-import '../../../domain/shared/value_objects.dart';
+import '../../domain/auth/user/user.dart';
+import '../../domain/auth/value_objects.dart';
+import '../../domain/shared/value_objects.dart';
 
 part 'user_dtos.freezed.dart';
 part 'user_dtos.g.dart';

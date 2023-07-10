@@ -11,7 +11,7 @@ import '../../../domain/auth/auth_failure.dart';
 import '../../../domain/auth/i_auth_facade.dart';
 import '../../../domain/auth/user/i_user_repository.dart';
 import '../../../domain/auth/value_objects.dart';
-import '../../../infrastructure/firebase_user_mapper.dart';
+import '../../../infrastructure/shared/firebase_user_mapper.dart';
 
 
 part 'sign_in_form_bloc.freezed.dart';

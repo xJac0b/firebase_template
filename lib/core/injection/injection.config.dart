@@ -29,7 +29,7 @@ import 'package:firebase_template/domain/auth/user/i_user_repository.dart'
     as _i11;
 import 'package:firebase_template/infrastructure/auth/firebase_auth_facade.dart'
     as _i10;
-import 'package:firebase_template/infrastructure/shared/user/user_repository.dart'
+import 'package:firebase_template/infrastructure/user/user_repository.dart'
     as _i12;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:google_sign_in/google_sign_in.dart' as _i8;

@@ -4,12 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/auth/user/i_user_repository.dart';
-import '../../../domain/auth/user/user.dart';
-import '../../../domain/auth/user/user_failure.dart';
-import '../../../domain/auth/value_objects.dart';
-import '../../../domain/shared/value_objects.dart';
-import '../../firestore_helpers.dart';
+import '../../domain/auth/user/i_user_repository.dart';
+import '../../domain/auth/user/user.dart';
+import '../../domain/auth/user/user_failure.dart';
+import '../../domain/auth/value_objects.dart';
+import '../../domain/shared/value_objects.dart';
+import '../shared/firestore_helpers.dart';
 import 'user_dtos.dart';
 
 @LazySingleton(as: IUserRepository)
@@ -21,7 +21,7 @@ class UserRepository implements IUserRepository {
   @override
   Future<Either<UserFailure, User>> get(firebase_auth.User fUser) async {
     try {
-      final userDoc = await _firestore.userDocument();
+      final userDoc = await _firestore.userDocument(fUser.uid);
       final doc = await userDoc.get();
       if (!doc.exists) {
         await create(
@@ -46,7 +46,7 @@ class UserRepository implements IUserRepository {
   @override
   Future<Either<UserFailure, Unit>> create(User user) async {
     try {
-      final userDoc = await _firestore.userDocument();
+      final userDoc = await _firestore.userDocument(user.id.getOrCrash());
       final userDto = UserDto.fromDomain(user);
 
       await userDoc.set(userDto.toJson());
@@ -64,10 +64,9 @@ class UserRepository implements IUserRepository {
   @override
   Future<Either<UserFailure, Unit>> update(User user) async {
     try {
-      
-      final userDoc = await _firestore.userDocument();
+      final userDoc = await _firestore.userDocument(user.id.getOrCrash());
       final userDto = UserDto.fromDomain(user);
-      
+
       await userDoc.update(userDto.toJson());
 
       return right(unit);
@@ -85,7 +84,7 @@ class UserRepository implements IUserRepository {
   @override
   Future<Either<UserFailure, Unit>> delete(User user) async {
     try {
-      final userDoc = await _firestore.userDocument();
+      final userDoc = await _firestore.userDocument(user.id.getOrCrash());
       await userDoc.delete();
       return right(unit);
     } on FirebaseException catch (e) {
