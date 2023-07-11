@@ -23,6 +23,11 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
+  Stream<firebase_auth.User?> authStateChanges() {
+    return _firebaseAuth.authStateChanges();
+  }
+
+  @override
   Future<void> signOut() => Future.wait([
         _googleSignIn.signOut(),
         _firebaseAuth.signOut(),
@@ -41,7 +46,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         email: emailAddressString,
         password: passwordString,
       );
-     
+
       return right(unit);
     } on firebase_auth.FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use' ||

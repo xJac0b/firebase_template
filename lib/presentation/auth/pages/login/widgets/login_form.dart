@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../application/auth/auth/auth_bloc.dart';
 import '../../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../../../core/routes/router.gr.dart';
 import '../../../../../l10n/l10n.dart';
@@ -39,9 +38,9 @@ class LoginForm extends StatelessWidget {
               );
             },
             (_) {
-              context
-                  .read<AuthBloc>()
-                  .add(const AuthEvent.authCheckRequested());
+              // context
+              //     .read<AuthBloc>()
+              //     .add(const AuthEvent.authCheckRequested());
               context.router.replace(const HomeRoute());
             },
           ),

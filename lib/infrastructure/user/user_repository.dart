@@ -4,11 +4,11 @@ import 'package:flutter/foundation.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/auth/user/i_user_repository.dart';
-import '../../domain/auth/user/user.dart';
-import '../../domain/auth/user/user_failure.dart';
 import '../../domain/auth/value_objects.dart';
 import '../../domain/shared/value_objects.dart';
+import '../../domain/user/i_user_repository.dart';
+import '../../domain/user/user.dart';
+import '../../domain/user/user_failure.dart';
 import '../shared/firestore_helpers.dart';
 import 'user_dtos.dart';
 

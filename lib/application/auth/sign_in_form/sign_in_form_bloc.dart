@@ -9,10 +9,9 @@ import 'package:injectable/injectable.dart';
 
 import '../../../domain/auth/auth_failure.dart';
 import '../../../domain/auth/i_auth_facade.dart';
-import '../../../domain/auth/user/i_user_repository.dart';
 import '../../../domain/auth/value_objects.dart';
+import '../../../domain/user/i_user_repository.dart';
 import '../../../infrastructure/shared/firebase_user_mapper.dart';
-
 
 part 'sign_in_form_bloc.freezed.dart';
 part 'sign_in_form_event.dart';
@@ -196,7 +195,6 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     emit(
       state.copyWith(
         isSubmitting: true,
-        // verificationEmailAttempts: state.verificationEmailAttempts - 1,
         authFailureOrSuccessOption: none(),
       ),
     );

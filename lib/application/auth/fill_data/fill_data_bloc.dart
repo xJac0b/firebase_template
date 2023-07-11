@@ -7,9 +7,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/auth/i_auth_facade.dart';
-import '../../../domain/auth/user/i_user_repository.dart';
 import '../../../domain/auth/value_objects.dart';
 import '../../../domain/storage/i_storage_repository.dart';
+import '../../../domain/user/i_user_repository.dart';
 import '../../../infrastructure/shared/firebase_user_mapper.dart';
 
 part 'fill_data_bloc.freezed.dart';
@@ -87,7 +87,9 @@ class FillDataBloc extends Bloc<FillDataEvent, FillDataState> {
       final _user = _authFacade.getSignedInUser();
       await _user.fold(() => null, (t) async {
         await _storageRepository.uploadAvatar(
-            t.uid, File(state.picture!.path!),);
+          t.uid,
+          File(state.picture!.path!),
+        );
         await t.updatePhotoURL(await _storageRepository.downloadAvatar(t.uid));
         await t.updateDisplayName(state.displayName.getOrCrash());
         final user = t.toDomain().copyWith(

@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../shared/value_objects.dart';
-import '../value_objects.dart';
+import '../auth/value_objects.dart';
+import '../shared/value_objects.dart';
 
 part 'user.freezed.dart';
 

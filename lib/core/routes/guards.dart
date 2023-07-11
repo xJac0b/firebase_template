@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/auth/i_auth_facade.dart';
-import '../../domain/auth/user/i_user_repository.dart';
+import '../../domain/user/i_user_repository.dart';
 import 'router.gr.dart';
 
 @Injectable()
