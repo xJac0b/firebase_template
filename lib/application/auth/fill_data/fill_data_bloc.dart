@@ -86,11 +86,14 @@ class FillDataBloc extends Bloc<FillDataEvent, FillDataState> {
 
       final _user = _authFacade.getSignedInUser();
       await _user.fold(() => null, (t) async {
-        await _storageRepository.uploadAvatar(
-          t.uid,
-          File(state.picture!.path!),
-        );
-        await t.updatePhotoURL(await _storageRepository.downloadAvatar(t.uid));
+        if (state.picture != null) {
+          await _storageRepository.uploadAvatar(
+            t.uid,
+            File(state.picture!.path!),
+          );
+          await t
+              .updatePhotoURL(await _storageRepository.downloadAvatar(t.uid));
+        }
         await t.updateDisplayName(state.displayName.getOrCrash());
         final user = t.toDomain().copyWith(
               filled: true,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/auth/auth/auth_bloc.dart';
+import '../../../../core/injection/injection.dart';
+import '../../../../domain/user/i_user_repository.dart';
 import '../../../shared/widgets/default_padding.dart';
 import '../../../shared/widgets/logout_button.dart';
 import '../../widgets/logout_detector.dart';
@@ -25,10 +27,20 @@ class HomePageView extends StatelessWidget {
               builder: (context, state) => state.maybeMap(
                 authenticated: (state) => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Text(state.user.displayName!.getOrCrash())],
+                  children: [
+                    Text('Male:${state.user.male}'),
+                    Text(state.user.displayName!.getOrCrash()),
+                    ElevatedButton(
+                      onPressed: () {
+                        getIt<IUserRepository>().update(
+                          state.user.copyWith(male: !state.user.male!),
+                        );
+                      },
+                      child: Text(state.user.dateOfBirth.toString()),
+                    )
+                  ],
                 ),
-                initial: (_) => const Text('Initial'),
-                orElse: () => const Text('Not authenticated'),
+                orElse: () => const CircularProgressIndicator(),
               ),
             ),
           ),

@@ -7,7 +7,7 @@ import 'value_objects.dart';
 abstract class IAuthFacade {
   Option<firebase_auth.User> getSignedInUser();
 
-  Stream<firebase_auth.User?> authStateChanges();
+  Stream<firebase_auth.User?> userChanges();
 
   Future<void> signOut();
 

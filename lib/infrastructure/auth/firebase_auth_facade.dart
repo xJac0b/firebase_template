@@ -23,8 +23,8 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Stream<firebase_auth.User?> authStateChanges() {
-    return _firebaseAuth.authStateChanges();
+  Stream<firebase_auth.User?> userChanges() {
+    return _firebaseAuth.userChanges();
   }
 
   @override

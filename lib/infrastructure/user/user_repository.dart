@@ -97,4 +97,10 @@ class UserRepository implements IUserRepository {
       }
     }
   }
+
+  @override
+  Future<Stream<DocumentSnapshot<Object?>>> changes(String uid) async {
+    final ref = await _firestore.userDocument(uid);
+    return ref.snapshots();
+  }
 }

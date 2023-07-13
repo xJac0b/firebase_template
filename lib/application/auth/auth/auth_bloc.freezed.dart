@@ -19,18 +19,21 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(firebase_auth.User? user) authCheckRequested,
+    required TResult Function(firebase_auth.User user) userUpdated,
     required TResult Function() signedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(firebase_auth.User? user)? authCheckRequested,
+    TResult? Function(firebase_auth.User user)? userUpdated,
     TResult? Function()? signedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(firebase_auth.User? user)? authCheckRequested,
+    TResult Function(firebase_auth.User user)? userUpdated,
     TResult Function()? signedOut,
     required TResult orElse(),
   }) =>
@@ -38,18 +41,21 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserUpdated value) userUpdated,
     required TResult Function(SignedOut value) signedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(UserUpdated value)? userUpdated,
     TResult? Function(SignedOut value)? signedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserUpdated value)? userUpdated,
     TResult Function(SignedOut value)? signedOut,
     required TResult orElse(),
   }) =>
@@ -139,6 +145,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(firebase_auth.User? user) authCheckRequested,
+    required TResult Function(firebase_auth.User user) userUpdated,
     required TResult Function() signedOut,
   }) {
     return authCheckRequested(user);
@@ -148,6 +155,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(firebase_auth.User? user)? authCheckRequested,
+    TResult? Function(firebase_auth.User user)? userUpdated,
     TResult? Function()? signedOut,
   }) {
     return authCheckRequested?.call(user);
@@ -157,6 +165,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(firebase_auth.User? user)? authCheckRequested,
+    TResult Function(firebase_auth.User user)? userUpdated,
     TResult Function()? signedOut,
     required TResult orElse(),
   }) {
@@ -170,6 +179,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserUpdated value) userUpdated,
     required TResult Function(SignedOut value) signedOut,
   }) {
     return authCheckRequested(this);
@@ -179,6 +189,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(UserUpdated value)? userUpdated,
     TResult? Function(SignedOut value)? signedOut,
   }) {
     return authCheckRequested?.call(this);
@@ -188,6 +199,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserUpdated value)? userUpdated,
     TResult Function(SignedOut value)? signedOut,
     required TResult orElse(),
   }) {
@@ -205,6 +217,145 @@ abstract class AuthCheckRequested implements AuthEvent {
   firebase_auth.User? get user;
   @JsonKey(ignore: true)
   _$$AuthCheckRequestedCopyWith<_$AuthCheckRequested> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UserUpdatedCopyWith<$Res> {
+  factory _$$UserUpdatedCopyWith(
+          _$UserUpdated value, $Res Function(_$UserUpdated) then) =
+      __$$UserUpdatedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({firebase_auth.User user});
+}
+
+/// @nodoc
+class __$$UserUpdatedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$UserUpdated>
+    implements _$$UserUpdatedCopyWith<$Res> {
+  __$$UserUpdatedCopyWithImpl(
+      _$UserUpdated _value, $Res Function(_$UserUpdated) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$UserUpdated(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as firebase_auth.User,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UserUpdated implements UserUpdated {
+  const _$UserUpdated(this.user);
+
+  @override
+  final firebase_auth.User user;
+
+  @override
+  String toString() {
+    return 'AuthEvent.userUpdated(user: $user)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserUpdated &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserUpdatedCopyWith<_$UserUpdated> get copyWith =>
+      __$$UserUpdatedCopyWithImpl<_$UserUpdated>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(firebase_auth.User? user) authCheckRequested,
+    required TResult Function(firebase_auth.User user) userUpdated,
+    required TResult Function() signedOut,
+  }) {
+    return userUpdated(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(firebase_auth.User? user)? authCheckRequested,
+    TResult? Function(firebase_auth.User user)? userUpdated,
+    TResult? Function()? signedOut,
+  }) {
+    return userUpdated?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(firebase_auth.User? user)? authCheckRequested,
+    TResult Function(firebase_auth.User user)? userUpdated,
+    TResult Function()? signedOut,
+    required TResult orElse(),
+  }) {
+    if (userUpdated != null) {
+      return userUpdated(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserUpdated value) userUpdated,
+    required TResult Function(SignedOut value) signedOut,
+  }) {
+    return userUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(UserUpdated value)? userUpdated,
+    TResult? Function(SignedOut value)? signedOut,
+  }) {
+    return userUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserUpdated value)? userUpdated,
+    TResult Function(SignedOut value)? signedOut,
+    required TResult orElse(),
+  }) {
+    if (userUpdated != null) {
+      return userUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserUpdated implements AuthEvent {
+  const factory UserUpdated(final firebase_auth.User user) = _$UserUpdated;
+
+  firebase_auth.User get user;
+  @JsonKey(ignore: true)
+  _$$UserUpdatedCopyWith<_$UserUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -247,6 +398,7 @@ class _$SignedOut implements SignedOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(firebase_auth.User? user) authCheckRequested,
+    required TResult Function(firebase_auth.User user) userUpdated,
     required TResult Function() signedOut,
   }) {
     return signedOut();
@@ -256,6 +408,7 @@ class _$SignedOut implements SignedOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(firebase_auth.User? user)? authCheckRequested,
+    TResult? Function(firebase_auth.User user)? userUpdated,
     TResult? Function()? signedOut,
   }) {
     return signedOut?.call();
@@ -265,6 +418,7 @@ class _$SignedOut implements SignedOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(firebase_auth.User? user)? authCheckRequested,
+    TResult Function(firebase_auth.User user)? userUpdated,
     TResult Function()? signedOut,
     required TResult orElse(),
   }) {
@@ -278,6 +432,7 @@ class _$SignedOut implements SignedOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserUpdated value) userUpdated,
     required TResult Function(SignedOut value) signedOut,
   }) {
     return signedOut(this);
@@ -287,6 +442,7 @@ class _$SignedOut implements SignedOut {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(UserUpdated value)? userUpdated,
     TResult? Function(SignedOut value)? signedOut,
   }) {
     return signedOut?.call(this);
@@ -296,6 +452,7 @@ class _$SignedOut implements SignedOut {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserUpdated value)? userUpdated,
     TResult Function(SignedOut value)? signedOut,
     required TResult orElse(),
   }) {

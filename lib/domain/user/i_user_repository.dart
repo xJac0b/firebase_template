@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:fpdart/fpdart.dart';
 
@@ -9,4 +10,5 @@ abstract class IUserRepository {
   Future<Either<UserFailure, Unit>> create(User user);
   Future<Either<UserFailure, Unit>> update(User user);
   Future<Either<UserFailure, Unit>> delete(User user);
+  Future<Stream<DocumentSnapshot<Object?>>> changes(String uid);
 }
