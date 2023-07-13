@@ -8,7 +8,7 @@ import '../../../../core/routes/router.gr.dart';
 import '../../../../core/utils/extensions.dart';
 import '../../../../l10n/l10n.dart';
 import '../../../shared/widgets/default_padding.dart';
-import '../../../shared/widgets/logout_button.dart';
+import '../../widgets/logout_button.dart';
 import '../../widgets/logout_detector.dart';
 import '../../widgets/two_text_parts_button.dart';
 import '../../widgets/wide_button.dart';
