@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/counter/counter_cubit.dart';
+import '../auth/widgets/logout_detector.dart';
 
 @RoutePage()
 class CounterPage extends StatelessWidget {
@@ -12,7 +13,7 @@ class CounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => CounterCubit(),
-      child: const CounterView(),
+      child: const LogoutDetector(child: CounterView()),
     );
   }
 }
@@ -29,11 +30,13 @@ class CounterView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: 'decrement',
             onPressed: () => context.read<CounterCubit>().increment(),
             child: const Icon(Icons.add),
           ),
           const SizedBox(height: 8),
           FloatingActionButton(
+            heroTag: 'increment',
             onPressed: () => context.read<CounterCubit>().decrement(),
             child: const Icon(Icons.remove),
           ),
