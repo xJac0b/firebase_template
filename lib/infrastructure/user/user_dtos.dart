@@ -12,9 +12,12 @@ part 'user_dtos.g.dart';
 @freezed
 class UserDto with _$UserDto {
   const factory UserDto({
-    bool? filled,
+    required bool filled,
     DateTime? dateOfBirth,
     bool? male,
+    String? displayName,
+    String? photoUrl,
+    required String email,
   }) = _UserDto;
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
@@ -31,17 +34,18 @@ class UserDto with _$UserDto {
       filled: user.filled,
       dateOfBirth: user.dateOfBirth?.getOrCrash(),
       male: user.male,
+      displayName: user.displayName?.getOrCrash(),
+      photoUrl: user.photoUrl,
+      email: user.email.getOrCrash(),
     );
   }
 
   User toDomain(firebase_auth.User fUser) {
     return User(
       id: UniqueId.fromUniqueString(fUser.uid),
-      emailVerified: fUser.emailVerified,
-      email: EmailAddress(fUser.email!),
-      displayName:
-          fUser.displayName == null ? null : DisplayName(fUser.displayName!),
-      photoUrl: fUser.photoURL,
+      email: EmailAddress(email),
+      displayName: displayName == null ? null : DisplayName(displayName!),
+      photoUrl: photoUrl,
       filled: filled,
       male: male,
       dateOfBirth: dateOfBirth == null ? null : DateOfBirth(dateOfBirth!),

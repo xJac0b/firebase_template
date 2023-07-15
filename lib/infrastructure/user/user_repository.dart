@@ -3,8 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/auth/value_objects.dart';
-import '../../domain/shared/value_objects.dart';
 import '../../domain/user/i_user_repository.dart';
 import '../../domain/user/user.dart';
 import '../../domain/user/user_failure.dart';
@@ -22,15 +20,6 @@ class UserRepository implements IUserRepository {
     try {
       final userDoc = await _firestore.userDocument(fUser.uid);
       final doc = await userDoc.get();
-      if (!doc.exists) {
-        await create(
-          User(
-            id: UniqueId.fromUniqueString(fUser.uid),
-            email: EmailAddress(fUser.email!),
-            emailVerified: fUser.emailVerified,
-          ),
-        );
-      }
       return right(UserDto.fromFirestore(doc).toDomain(fUser));
     } on Exception catch (e) {
       if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {

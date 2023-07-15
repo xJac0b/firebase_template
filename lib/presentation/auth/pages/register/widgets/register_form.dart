@@ -38,7 +38,7 @@ class RegisterForm extends StatelessWidget {
             },
             (_) {
               context.router.push(
-                VerificationRoute(email: state.emailAddress.getOrCrash()),
+                const VerificationRoute(),
               );
               context.read<SignInFormBloc>().add(
                     const SignInFormEvent.sendVerificationEmail(),

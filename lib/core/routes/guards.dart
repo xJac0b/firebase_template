@@ -19,14 +19,14 @@ class AuthGuard extends AutoRouteGuard {
       if (u.emailVerified) {
         final user = await _userRepository.get(u);
         await user.fold((l) => router.push(const LoginRoute()), (u) {
-          if (u.filled ?? false) {
+          if (u.filled) {
             resolver.next();
           } else {
             router.push(const FillDataRoute());
           }
         });
       } else {
-        await router.push(VerificationRoute(email: u.email!));
+        await router.push(const VerificationRoute());
       }
     });
   }

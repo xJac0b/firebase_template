@@ -9,11 +9,10 @@ part 'user.freezed.dart';
 class User with _$User {
   const factory User({
     required UniqueId id,
-    required bool emailVerified,
     required EmailAddress email,
+    required bool filled,
     DisplayName? displayName,
     String? photoUrl,
-    bool? filled,
     bool? male,
     DateOfBirth? dateOfBirth,
   }) = _User;

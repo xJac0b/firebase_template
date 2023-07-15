@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/auth/fill_data/fill_data_bloc.dart';
 import '../../../../core/injection/injection.dart';
+import '../../widgets/logout_detector.dart';
 import 'fill_data_page_view.dart';
 
 @RoutePage()
@@ -14,7 +15,7 @@ class FillDataPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<FillDataBloc>(),
-      child: const FillDataPageView(),
+      child: const LogoutDetector(child: FillDataPageView()),
     );
   }
 }

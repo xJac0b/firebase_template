@@ -230,9 +230,9 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     Emitter<SignInFormState> emit,
   ) async {
     await _userRepository.create(
-      _authFacade
-          .getSignedInUser()
-          .fold(() => throw Exception(), (user) => user.toDomain()),
+      _authFacade.getSignedInUser().fold(() => throw Exception(), (user) {
+        return user.toDomain();
+      }),
     );
     emit(
       state.copyWith(authFailureOrSuccessOption: some(right(unit))),

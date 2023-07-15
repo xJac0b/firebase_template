@@ -16,7 +16,8 @@ class LogoutDetector extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         state.maybeMap(
-          unauthenticated: (_) => context.router.replace(const LoginRoute()),
+          unauthenticated: (_) =>
+              context.router.replaceAll([const LoginRoute()]),
           orElse: () {},
         );
       },

@@ -17,11 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$User {
   UniqueId get id => throw _privateConstructorUsedError;
-  bool get emailVerified => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
+  bool get filled => throw _privateConstructorUsedError;
   DisplayName? get displayName => throw _privateConstructorUsedError;
   String? get photoUrl => throw _privateConstructorUsedError;
-  bool? get filled => throw _privateConstructorUsedError;
   bool? get male => throw _privateConstructorUsedError;
   DateOfBirth? get dateOfBirth => throw _privateConstructorUsedError;
 
@@ -36,11 +35,10 @@ abstract class $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
-      bool emailVerified,
       EmailAddress email,
+      bool filled,
       DisplayName? displayName,
       String? photoUrl,
-      bool? filled,
       bool? male,
       DateOfBirth? dateOfBirth});
 }
@@ -59,11 +57,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = null,
-    Object? emailVerified = null,
     Object? email = null,
+    Object? filled = null,
     Object? displayName = freezed,
     Object? photoUrl = freezed,
-    Object? filled = freezed,
     Object? male = freezed,
     Object? dateOfBirth = freezed,
   }) {
@@ -72,14 +69,14 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      emailVerified: null == emailVerified
-          ? _value.emailVerified
-          : emailVerified // ignore: cast_nullable_to_non_nullable
-              as bool,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      filled: null == filled
+          ? _value.filled
+          : filled // ignore: cast_nullable_to_non_nullable
+              as bool,
       displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -88,10 +85,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      filled: freezed == filled
-          ? _value.filled
-          : filled // ignore: cast_nullable_to_non_nullable
-              as bool?,
       male: freezed == male
           ? _value.male
           : male // ignore: cast_nullable_to_non_nullable
@@ -112,11 +105,10 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
-      bool emailVerified,
       EmailAddress email,
+      bool filled,
       DisplayName? displayName,
       String? photoUrl,
-      bool? filled,
       bool? male,
       DateOfBirth? dateOfBirth});
 }
@@ -131,11 +123,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @override
   $Res call({
     Object? id = null,
-    Object? emailVerified = null,
     Object? email = null,
+    Object? filled = null,
     Object? displayName = freezed,
     Object? photoUrl = freezed,
-    Object? filled = freezed,
     Object? male = freezed,
     Object? dateOfBirth = freezed,
   }) {
@@ -144,14 +135,14 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      emailVerified: null == emailVerified
-          ? _value.emailVerified
-          : emailVerified // ignore: cast_nullable_to_non_nullable
-              as bool,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      filled: null == filled
+          ? _value.filled
+          : filled // ignore: cast_nullable_to_non_nullable
+              as bool,
       displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -160,10 +151,6 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      filled: freezed == filled
-          ? _value.filled
-          : filled // ignore: cast_nullable_to_non_nullable
-              as bool?,
       male: freezed == male
           ? _value.male
           : male // ignore: cast_nullable_to_non_nullable
@@ -181,26 +168,23 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 class _$_User implements _User {
   const _$_User(
       {required this.id,
-      required this.emailVerified,
       required this.email,
+      required this.filled,
       this.displayName,
       this.photoUrl,
-      this.filled,
       this.male,
       this.dateOfBirth});
 
   @override
   final UniqueId id;
   @override
-  final bool emailVerified;
-  @override
   final EmailAddress email;
+  @override
+  final bool filled;
   @override
   final DisplayName? displayName;
   @override
   final String? photoUrl;
-  @override
-  final bool? filled;
   @override
   final bool? male;
   @override
@@ -208,7 +192,7 @@ class _$_User implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, emailVerified: $emailVerified, email: $email, displayName: $displayName, photoUrl: $photoUrl, filled: $filled, male: $male, dateOfBirth: $dateOfBirth)';
+    return 'User(id: $id, email: $email, filled: $filled, displayName: $displayName, photoUrl: $photoUrl, male: $male, dateOfBirth: $dateOfBirth)';
   }
 
   @override
@@ -217,22 +201,20 @@ class _$_User implements _User {
         (other.runtimeType == runtimeType &&
             other is _$_User &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.emailVerified, emailVerified) ||
-                other.emailVerified == emailVerified) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.filled, filled) || other.filled == filled) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.photoUrl, photoUrl) ||
                 other.photoUrl == photoUrl) &&
-            (identical(other.filled, filled) || other.filled == filled) &&
             (identical(other.male, male) || other.male == male) &&
             (identical(other.dateOfBirth, dateOfBirth) ||
                 other.dateOfBirth == dateOfBirth));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, emailVerified, email,
-      displayName, photoUrl, filled, male, dateOfBirth);
+  int get hashCode => Object.hash(
+      runtimeType, id, email, filled, displayName, photoUrl, male, dateOfBirth);
 
   @JsonKey(ignore: true)
   @override
@@ -244,26 +226,23 @@ class _$_User implements _User {
 abstract class _User implements User {
   const factory _User(
       {required final UniqueId id,
-      required final bool emailVerified,
       required final EmailAddress email,
+      required final bool filled,
       final DisplayName? displayName,
       final String? photoUrl,
-      final bool? filled,
       final bool? male,
       final DateOfBirth? dateOfBirth}) = _$_User;
 
   @override
   UniqueId get id;
   @override
-  bool get emailVerified;
-  @override
   EmailAddress get email;
+  @override
+  bool get filled;
   @override
   DisplayName? get displayName;
   @override
   String? get photoUrl;
-  @override
-  bool? get filled;
   @override
   bool? get male;
   @override

@@ -22,10 +22,9 @@ import 'package:firebase_template/presentation/auth/pages/reset_password/reset_p
 import 'package:firebase_template/presentation/auth/pages/verification/verification_page.dart'
     as _i4;
 import 'package:firebase_template/presentation/counter/counter_page.dart'
-    as _i8;
-import 'package:firebase_template/presentation/profile/pages/home/profile_page.dart'
     as _i7;
-import 'package:flutter/foundation.dart' as _i10;
+import 'package:firebase_template/presentation/profile/pages/profile_page.dart'
+    as _i8;
 
 abstract class $AppRouter extends _i9.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -51,13 +50,9 @@ abstract class $AppRouter extends _i9.RootStackRouter {
       );
     },
     VerificationRoute.name: (routeData) {
-      final args = routeData.argsAs<VerificationRouteArgs>();
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i4.VerificationPage(
-          key: args.key,
-          email: args.email,
-        ),
+        child: const _i4.VerificationPage(),
       );
     },
     FillDataRoute.name: (routeData) {
@@ -72,16 +67,16 @@ abstract class $AppRouter extends _i9.RootStackRouter {
         child: const _i6.HomePage(),
       );
     },
-    ProfileRoute.name: (routeData) {
-      return _i9.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i7.ProfilePage(),
-      );
-    },
     CounterRoute.name: (routeData) {
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.CounterPage(),
+        child: const _i7.CounterPage(),
+      );
+    },
+    ProfileRoute.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i8.ProfilePage(),
       );
     },
   };
@@ -131,40 +126,16 @@ class ResetPasswordRoute extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.VerificationPage]
-class VerificationRoute extends _i9.PageRouteInfo<VerificationRouteArgs> {
-  VerificationRoute({
-    _i10.Key? key,
-    required String email,
-    List<_i9.PageRouteInfo>? children,
-  }) : super(
+class VerificationRoute extends _i9.PageRouteInfo<void> {
+  const VerificationRoute({List<_i9.PageRouteInfo>? children})
+      : super(
           VerificationRoute.name,
-          args: VerificationRouteArgs(
-            key: key,
-            email: email,
-          ),
           initialChildren: children,
         );
 
   static const String name = 'VerificationRoute';
 
-  static const _i9.PageInfo<VerificationRouteArgs> page =
-      _i9.PageInfo<VerificationRouteArgs>(name);
-}
-
-class VerificationRouteArgs {
-  const VerificationRouteArgs({
-    this.key,
-    required this.email,
-  });
-
-  final _i10.Key? key;
-
-  final String email;
-
-  @override
-  String toString() {
-    return 'VerificationRouteArgs{key: $key, email: $email}';
-  }
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
@@ -196,21 +167,7 @@ class HomeRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.ProfilePage]
-class ProfileRoute extends _i9.PageRouteInfo<void> {
-  const ProfileRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          ProfileRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ProfileRoute';
-
-  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i8.CounterPage]
+/// [_i7.CounterPage]
 class CounterRoute extends _i9.PageRouteInfo<void> {
   const CounterRoute({List<_i9.PageRouteInfo>? children})
       : super(
@@ -219,6 +176,20 @@ class CounterRoute extends _i9.PageRouteInfo<void> {
         );
 
   static const String name = 'CounterRoute';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i8.ProfilePage]
+class ProfileRoute extends _i9.PageRouteInfo<void> {
+  const ProfileRoute({List<_i9.PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
 
   static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }

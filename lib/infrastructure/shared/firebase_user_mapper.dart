@@ -8,10 +8,8 @@ extension FirebaseUserDomainX on firebase_auth.User {
   User toDomain() {
     return User(
       id: UniqueId.fromUniqueString(uid),
-      emailVerified: emailVerified,
-      displayName: displayName == null ? null : DisplayName(displayName!),
-      photoUrl: photoURL,
       email: EmailAddress(email!),
+      filled: displayName != null,
     );
   }
 }
