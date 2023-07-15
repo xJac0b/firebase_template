@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/dimensions.dart';
+import '../../../core/constants/dimensions.dart';
 
 class DefaultPadding extends StatelessWidget {
   const DefaultPadding({

@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/decorations.dart';
+import '../../../core/constants/decorations.dart';
 
 class CustomDropdownButton extends StatelessWidget {
   const CustomDropdownButton({

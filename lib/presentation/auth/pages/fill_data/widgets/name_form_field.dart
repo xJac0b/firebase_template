@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../application/auth/fill_data/fill_data_bloc.dart';
-import '../../../../../constants/decorations.dart';
+import '../../../../../core/constants/decorations.dart';
 import '../../../../../domain/auth/value_objects.dart';
 import '../../../../../l10n/l10n.dart';
 

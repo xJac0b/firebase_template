@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../../constants/decorations.dart';
+import '../../../../../core/constants/decorations.dart';
 
 class DateField extends StatefulWidget {
   const DateField({
