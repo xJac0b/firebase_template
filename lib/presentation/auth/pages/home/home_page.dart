@@ -13,6 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       appBarBuilder: (context, tabsRouter) => AppBar(
+        centerTitle: true,
         title: tabsRouter.activeIndex == 0
             ? Text(context.l10n.profilePageTitle)
             : Text(context.l10n.counterPageTitle),

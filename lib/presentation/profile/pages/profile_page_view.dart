@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../application/auth/auth/auth_bloc.dart';
-import '../../../core/utils/extensions.dart';
-import '../../auth/pages/fill_data/widgets/avatar_upload.dart';
-import '../../shared/widgets/default_padding.dart';
+import '../../../l10n/l10n.dart';
+import '../../shared/widgets/loading_indicator.dart';
+import 'widgets/avatar.dart';
+import 'widgets/background_image.dart';
+import 'widgets/profile_info_row.dart';
 
 class ProfilePageView extends StatelessWidget {
   const ProfilePageView({Key? key}) : super(key: key);
@@ -13,36 +16,53 @@ class ProfilePageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: DefaultPadding(
-        child: BlocBuilder<AuthBloc, AuthState>(
-          builder: (context, state) => state.maybeMap(
-            authenticated: (state) => Container(
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                children: [
-                  if (state.user.photoUrl != null)
-                    AvatarUpload(
-                      image: Image.network(state.user.photoUrl!),
+      body: BlocBuilder<AuthBloc, AuthState>(
+        builder: (context, state) => state.maybeMap(
+          authenticated: (state) => Container(
+            width: MediaQuery.of(context).size.width,
+            child: CustomScrollView(
+              slivers: [
+                BackgroundImage(
+                  imageUrl: state.user.photoUrl,
+                ),
+                SliverList(
+                  delegate: SliverChildListDelegate.fixed([
+                    Avatar(
+                      url: state.user.photoUrl,
                     ),
-                  Text(
-                    state.user.displayName!.getOrCrash(),
-                    textAlign: TextAlign.start,
-                    style: context.textTheme.headlineLarge,
-                  ),
-                  Text(
-                    '${state.user.email.getOrCrash()}\n${state.user.dateOfBirth!.value.fold((l) => l, (r) => r)}',
-                  ),
-                  if (state.user.male!)
-                    const Icon(Icons.male)
-                  else
-                    const Icon(Icons.female)
-                ],
-              ),
+                    ProfileInfoRow(
+                      icon: Icons.person,
+                      text: state.user.displayName!.getOrCrash(),
+                    ),
+                    ProfileInfoRow(
+                      icon: Icons.email,
+                      text: state.user.email.getOrCrash(),
+                    ),
+                    if (state.user.male!)
+                      ProfileInfoRow(
+                        icon: Icons.male,
+                        text: context.l10n.genderMale,
+                      )
+                    else
+                      ProfileInfoRow(
+                        icon: Icons.female,
+                        text: context.l10n.genderFemale,
+                      ),
+                    ProfileInfoRow(
+                      icon: Icons.calendar_month,
+                      text: DateFormat('d MMMM yyyy')
+                          .format(state.user.dateOfBirth!.getOrCrash())
+                          .toString(),
+                    )
+                  ]),
+                ),
+              ],
             ),
-            orElse: () => const CircularProgressIndicator(),
           ),
+          orElse: () => const LoadingIndicator(),
         ),
       ),
     );
   }
 }
+

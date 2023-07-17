@@ -1,46 +1,28 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/constants/resource_links.dart';
 
 class Avatar extends StatelessWidget {
   const Avatar({
     Key? key,
     this.onPressed,
-    this.image,
+    this.url,
   }) : super(key: key);
   final Function()? onPressed;
-  final Image? image;
+  final String? url;
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      radius: 50,
-      child: Align(
-        child: Stack(
-          children: [
-            Align(
-              child: CircleAvatar(
-                radius: 48,
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                backgroundImage: image?.image,
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: IconButton(
-                padding: EdgeInsets.zero,
-                onPressed: onPressed,
-                icon: const Icon(
-                  Icons.add_a_photo_rounded,
-                  shadows: [
-                    Shadow(
-                      color: Color.fromARGB(255, 200, 200, 200),
-                      blurRadius: 10,
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
+      radius: 60,
+      child: CachedNetworkImage(
+        imageBuilder: (context, img) => CircleAvatar(
+          radius: 58,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          backgroundImage: img,
         ),
+        imageUrl: url ?? ResourceLinks.avatarPlaceholderUrl,
       ),
     );
   }
@@ -50,6 +32,6 @@ class Avatar extends StatelessWidget {
     super.debugFillProperties(properties);
     properties
       ..add(ObjectFlagProperty<Function()?>.has('onPressed', onPressed))
-      ..add(DiagnosticsProperty<Image?>('image', image));
+      ..add(StringProperty('url', url));
   }
 }

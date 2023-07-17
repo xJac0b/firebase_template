@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../../../core/routes/router.gr.dart';
 import '../../../../../l10n/l10n.dart';
+import '../../../../shared/widgets/loading_indicator.dart';
 import '../../../widgets/email_form_field.dart';
 import '../../../widgets/password_form_field.dart';
 import '../../../widgets/two_text_parts_button.dart';
@@ -51,7 +52,7 @@ class RegisterForm extends StatelessWidget {
         if (state.isSubmitting ||
             state.authFailureOrSuccessOption
                 .fold(() => false, (t) => t.fold((l) => false, (r) => true))) {
-          return const Center(child: CircularProgressIndicator());
+          return const LoadingIndicator();
         } else {
           return Form(
             child: Column(

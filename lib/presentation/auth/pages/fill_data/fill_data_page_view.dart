@@ -7,6 +7,7 @@ import '../../../../core/routes/router.gr.dart';
 import '../../../../core/utils/extensions.dart';
 import '../../../../l10n/l10n.dart';
 import '../../../shared/widgets/default_padding.dart';
+import '../../../shared/widgets/loading_indicator.dart';
 import '../../widgets/logout_button.dart';
 import 'widgets/fill_data_form.dart';
 
@@ -32,7 +33,7 @@ class FillDataPageView extends StatelessWidget {
                 },
                 builder: (context, state) {
                   if (state.isSubmitting || state.success) {
-                    return const CircularProgressIndicator();
+                    return const LoadingIndicator();
                   }
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,

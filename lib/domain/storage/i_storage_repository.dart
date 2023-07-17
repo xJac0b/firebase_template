@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:firebase_storage/firebase_storage.dart';
+
 abstract class IStorageRepository {
-  Future<void> upload(String path, File file);
-  Future<void> uploadAvatar(String uid, File file);
-  Future<String> download(String path);
-  Future<String> downloadAvatar(String uid);
+  Future<void> uploadByPath(String path, File file);
+  Future<void> uploadByRef(Reference ref, File file);
+  Future<String> downloadByPath(String path);
+  Future<String> downloadByRef(Reference ref);
 }

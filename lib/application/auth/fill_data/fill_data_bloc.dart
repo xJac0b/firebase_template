@@ -10,6 +10,7 @@ import '../../../domain/auth/i_auth_facade.dart';
 import '../../../domain/auth/value_objects.dart';
 import '../../../domain/storage/i_storage_repository.dart';
 import '../../../domain/user/i_user_repository.dart';
+import '../../../infrastructure/shared/firebase_storage_helpers.dart';
 import '../../../infrastructure/shared/firebase_user_mapper.dart';
 
 part 'fill_data_bloc.freezed.dart';
@@ -88,11 +89,12 @@ class FillDataBloc extends Bloc<FillDataEvent, FillDataState> {
       String? photoUrl;
       await _user.fold(() => null, (t) async {
         if (state.picture != null) {
-          await _storageRepository.uploadAvatar(
-            t.uid,
+          final ref = await FirebaseStorageX.userAvatar(t.uid);
+          await _storageRepository.uploadByRef(
+            ref,
             File(state.picture!.path!),
           );
-          photoUrl = await _storageRepository.downloadAvatar(t.uid);
+          photoUrl = await _storageRepository.downloadByRef(ref);
         }
         await t.updateDisplayName(state.displayName.getOrCrash());
         final user = t.toDomain().copyWith(
