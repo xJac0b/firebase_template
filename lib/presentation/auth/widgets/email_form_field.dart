@@ -31,7 +31,7 @@ class EmailFormField extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       validator: (_) => emailAddress.value.fold(
         (f) => f.maybeMap(
-          invalidEmail: (_) => 'Invalid Email',
+          invalidEmail: (_) => context.l10n.invalidEmail,
           orElse: () => null,
         ),
         (_) => null,
@@ -48,8 +48,12 @@ class EmailFormField extends StatelessWidget {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty<bool>(
-          'showValidatorMessages', showValidatorMessages,),)
+      ..add(
+        DiagnosticsProperty<bool>(
+          'showValidatorMessages',
+          showValidatorMessages,
+        ),
+      )
       ..add(DiagnosticsProperty<EmailAddress>('emailAddress', emailAddress));
   }
 }

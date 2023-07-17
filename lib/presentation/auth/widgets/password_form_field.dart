@@ -63,9 +63,10 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
               ),
           validator: (_) => widget.password.value.fold(
             (f) => f.maybeMap(
-              shortPassword: (_) => 'Short Password',
-              weakPassword: (_) =>
-                  'Must have 1 uppercase, 1 lowercase, 1 number\nand 1 special character (!@#\$&*~)',
+              shortPassword: (_) => context.l10n.shortPassword(
+                context.l10n.shortPassword(Password.minLength),
+              ),
+              weakPassword: (_) => context.l10n.weakPassword,
               orElse: () => null,
             ),
             (_) => null,

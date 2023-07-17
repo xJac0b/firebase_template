@@ -36,6 +36,10 @@
     "greeting": "Cześć",
     "check": "Sprawdź",
     "save": "Zapisz",
-    "invalidDate": "Nieprawidłowa data"
-
+    "invalidDate": "Nieprawidłowa data",
+    "profilePageTitle": "Profil",
+    "counterPageTitle": "Licznik",
+    "unknownError": "Nieznany błąd",
+    "shortPassword": "Hasło musi mieć co najmniej {length} znaków",
+    "weakPassword": "Musi zawierać wielką literę, małą literę,\\ncyfrę i znak specjalny (!@#\\$&*~)"
     }

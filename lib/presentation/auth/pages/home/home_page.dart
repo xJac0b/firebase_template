@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/routes/router.gr.dart';
+import '../../../../l10n/l10n.dart';
 import '../../widgets/logout_button.dart';
 import 'widgets/bottom_navigation.dart';
 
@@ -13,8 +14,8 @@ class HomePage extends StatelessWidget {
     return AutoTabsScaffold(
       appBarBuilder: (context, tabsRouter) => AppBar(
         title: tabsRouter.activeIndex == 0
-            ? const Text('Profile')
-            : const Text('Counter'),
+            ? Text(context.l10n.profilePageTitle)
+            : Text(context.l10n.counterPageTitle),
         actions: const [
           LogoutButton(),
         ],

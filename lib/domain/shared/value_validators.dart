@@ -2,7 +2,6 @@ import 'package:fpdart/fpdart.dart';
 
 import 'failures.dart';
 
-
 Either<ValueFailure<String>, String> validateMaxStringLength(
   String input,
   int maxLength,
@@ -38,7 +37,8 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
 }
 
 Either<ValueFailure<DateTime>, DateTime> validateDateNotInFuture(
-    DateTime date,) {
+  DateTime date,
+) {
   if (date.isAfter(DateTime.now())) {
     return left(ValueFailure.invalidDate(failedValue: date));
   } else {
@@ -54,10 +54,14 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   }
 }
 
-Either<ValueFailure<String>, String> validatePassword(String input) {
-  if (input.length >= 6) {
-    if (RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-        .hasMatch(input)) {
+Either<ValueFailure<String>, String> validatePassword(
+    String input, int minLength,) {
+  if (input.length >= minLength) {
+    if (RegExp(
+      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{' +
+          minLength.toString() +
+          r',}$',
+    ).hasMatch(input)) {
       return right(input);
     } else {
       return left(ValueFailure.weakPassword(failedValue: input));

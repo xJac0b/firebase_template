@@ -19,13 +19,14 @@ class EmailAddress extends ValueObject<String> {
 class Password extends ValueObject<String> {
   factory Password(String input) {
     return Password._(
-      validatePassword(input),
+      validatePassword(input, minLength),
     );
   }
 
   const Password._(this.value);
   @override
   final Either<ValueFailure<String>, String> value;
+  static const minLength = 6;
 }
 
 class DisplayName extends ValueObject<String> {

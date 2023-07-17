@@ -64,7 +64,7 @@ class VerificationPageView extends StatelessWidget {
                                     ),
                                   );
                                 } else {
-                                  return const Text('ERROR, USER NOT FOUND');
+                                  return Text(context.l10n.unknownError);
                                 }
                               },
                             ),

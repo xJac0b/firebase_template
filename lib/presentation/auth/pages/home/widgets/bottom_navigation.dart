@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../l10n/l10n.dart';
+
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({
     super.key,
@@ -16,14 +18,14 @@ class BottomNavigation extends StatelessWidget {
       onTap: onTap,
       // showSelectedLabels: false,
       showUnselectedLabels: false,
-      items: const <BottomNavigationBarItem>[
+      items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
+          icon: const Icon(Icons.person),
+          label: context.l10n.profilePageTitle,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.timer),
-          label: 'Counter',
+          icon: const Icon(Icons.timer),
+          label: context.l10n.counterPageTitle,
         ),
       ],
     );
