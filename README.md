@@ -4,7 +4,7 @@
 
 This template provides a solid foundation for building feature-rich Flutter applications integrated with Firebase. It follows Domain-driven Design principles for maintainable code, uses auto_route for declarative routing, and BLoC for efficient state management. The template includes a complete authentication system with features such as login, registration, email verification, password reset, and user profile management. User data is stored in Firestore, and avatars are uploaded to Firebase Cloud Storage. Additionally, there's a classic counter feature, with its value stored in Firestore, available after login.
 
-## Features
+## Features :sparkles:
 
 - **Domain-driven Design**: Organized project structure for better scalability and separation of concerns.
 - **auto_route**: Declarative and type-safe routing for easy navigation through screens.
@@ -15,6 +15,8 @@ This template provides a solid foundation for building feature-rich Flutter appl
 - **Classic Counter**: A simple counter example demonstrating Firestore integration.
 - **Cached Network Image**: Use "cached_network_image" package for caching images from network.
 With this feature, images fetched from the network will be cached locally, reducing the number of requests and improving performance.
+- **Working with Assets**: Utilize `flutter_gen_runner` for easy and type-safe access to your project's assets. [Learn more](https://pub.dev/packages/flutter_gen_runner)
+
 
 ## Getting Started 🚀
 
@@ -154,10 +156,10 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
 }
 ```
 
-### Contribution
+## Contribution :busts_in_silhouette:
 Contributions are welcome! If you encounter any bugs or have ideas for improvements, feel free to open an issue or submit a pull request.
 
-### License
+## License :page_facing_up:
 This project is licensed under the MIT License.
 
 [coverage_badge]: coverage_badge.svg
