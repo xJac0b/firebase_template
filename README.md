@@ -16,7 +16,7 @@ This template provides a solid foundation for building feature-rich Flutter appl
 - **Cached Network Image**: Use "cached_network_image" package for caching images from network.
 With this feature, images fetched from the network will be cached locally, reducing the number of requests and improving performance.
 - **Working with Assets**: Utilize `flutter_gen_runner` for easy and type-safe access to your project's assets. [Learn more](https://pub.dev/packages/flutter_gen_runner)
-
+- **Localization (l10n)**: Easily localize your app flutter_localizations [Learn more](https://github.com/xJac0b/firebase_template/edit/master/README.md#working-with-translations-)
 
 ## Getting Started 🚀
 
