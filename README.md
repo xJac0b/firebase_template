@@ -1,53 +1,61 @@
 # Firebase Template
-
-![coverage][coverage_badge]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
 
+This template provides a solid foundation for building feature-rich Flutter applications integrated with Firebase. It follows Domain-driven Design principles for maintainable code, uses auto_route for declarative routing, and BLoC for efficient state management. The template includes a complete authentication system with features such as login, registration, email verification, password reset, and user profile management. User data is stored in Firestore, and avatars are uploaded to Firebase Cloud Storage. Additionally, there's a classic counter feature, with its value stored in Firestore, available after login.
+
+## Features :sparkles:
+
+- **Domain-driven Design**: Organized project structure for better scalability and separation of concerns.
+- **auto_route**: Declarative and type-safe routing for easy navigation through screens.
+- **BLoC**: Robust state management for clean separation of UI and business logic.
+- **Authentication System**: Fully functional email-based authentication with additional features like email verification and password reset.
+- **Firestore Integration**: Store user data in Firestore for real-time data synchronization across devices.
+- **Firebase Cloud Storage**: Upload and manage user avatars securely using Firebase Cloud Storage.
+- **Classic Counter**: A simple counter example demonstrating Firestore integration.
+- **Cached Network Image**: Use "cached_network_image" package for caching images from network.
+With this feature, images fetched from the network will be cached locally, reducing the number of requests and improving performance.
+- **Working with Assets**: Utilize `flutter_gen_runner` for easy and type-safe access to your project's assets. [Learn more](https://pub.dev/packages/flutter_gen_runner)
+- **Localization (l10n)**: Easily localize your app flutter_localizations [Learn more](https://github.com/xJac0b/firebase_template/tree/master#working-with-translations-)
+
 ## Getting Started 🚀
 
-This project contains 3 flavors:
+To create a new project using this template, follow these steps:
 
-- development
-- staging
-- production
+1. **Clone the repository**.
 
-To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
+2. **Set up Firebase:**
 
-```sh
-# Development
-$ flutter run --flavor development --target lib/main_development.dart
+	Follow the [Firebase Flutter Setup Guide](https://firebase.google.com/docs/flutter/setup?platform=ios) to add Firebase to your Flutter project. This guide will walk you through the steps to 	configure Firebase for both Android and iOS platforms.
 
-# Staging
-$ flutter run --flavor staging --target lib/main_staging.dart
+3. **Install Dependencies**
+	Run the following command to get the required dependencies:
+	
+	```sh
+	$ flutter pub get
+	```
 
-# Production
-$ flutter run --flavor production --target lib/main_production.dart
-```
+4. **Run the app**
 
-_\*Firebase Template works on Android and iOS.
-
----
-
-## Running Tests 🧪
-
-To run all unit and widget tests use the following command:
-
-```sh
-$ flutter test --coverage --test-randomize-ordering-seed random
-```
-
-To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
-
-```sh
-# Generate Coverage Report
-$ genhtml coverage/lcov.info -o coverage/
-
-# Open Coverage Report
-$ open coverage/index.html
-```
-
----
+	This project contains 3 flavors:
+	
+	- development
+	- staging
+	- production
+	
+	To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
+	
+	```sh
+	# Development
+	$ flutter run --flavor development --target lib/main_development.dart
+	
+	# Staging
+	$ flutter run --flavor staging --target lib/main_staging.dart
+	
+	# Production
+	$ flutter run --flavor production --target lib/main_production.dart
+	```
+	---
 
 ## Working with Translations 🌐
 
@@ -147,6 +155,12 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
     }
 }
 ```
+
+## Contribution :busts_in_silhouette:
+Contributions are welcome! If you encounter any bugs or have ideas for improvements, feel free to open an issue or submit a pull request.
+
+## License :page_facing_up:
+This project is licensed under the MIT License.
 
 [coverage_badge]: coverage_badge.svg
 [flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
