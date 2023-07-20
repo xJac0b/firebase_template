@@ -793,7 +793,8 @@ mixin _$FillDataState {
   PlatformFile? get picture => throw _privateConstructorUsedError;
   bool get showValidatorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  bool get success => throw _privateConstructorUsedError;
+  Option<Either<DatabaseFailure, Unit>> get databaseFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FillDataStateCopyWith<FillDataState> get copyWith =>
@@ -813,7 +814,7 @@ abstract class $FillDataStateCopyWith<$Res> {
       PlatformFile? picture,
       bool showValidatorMessages,
       bool isSubmitting,
-      bool success});
+      Option<Either<DatabaseFailure, Unit>> databaseFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -835,7 +836,7 @@ class _$FillDataStateCopyWithImpl<$Res, $Val extends FillDataState>
     Object? picture = freezed,
     Object? showValidatorMessages = null,
     Object? isSubmitting = null,
-    Object? success = null,
+    Object? databaseFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
       dateOfBirth: null == dateOfBirth
@@ -862,10 +863,10 @@ class _$FillDataStateCopyWithImpl<$Res, $Val extends FillDataState>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      success: null == success
-          ? _value.success
-          : success // ignore: cast_nullable_to_non_nullable
-              as bool,
+      databaseFailureOrSuccessOption: null == databaseFailureOrSuccessOption
+          ? _value.databaseFailureOrSuccessOption
+          : databaseFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<DatabaseFailure, Unit>>,
     ) as $Val);
   }
 }
@@ -885,7 +886,7 @@ abstract class _$$_FillDataStateCopyWith<$Res>
       PlatformFile? picture,
       bool showValidatorMessages,
       bool isSubmitting,
-      bool success});
+      Option<Either<DatabaseFailure, Unit>> databaseFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -905,7 +906,7 @@ class __$$_FillDataStateCopyWithImpl<$Res>
     Object? picture = freezed,
     Object? showValidatorMessages = null,
     Object? isSubmitting = null,
-    Object? success = null,
+    Object? databaseFailureOrSuccessOption = null,
   }) {
     return _then(_$_FillDataState(
       dateOfBirth: null == dateOfBirth
@@ -932,10 +933,10 @@ class __$$_FillDataStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      success: null == success
-          ? _value.success
-          : success // ignore: cast_nullable_to_non_nullable
-              as bool,
+      databaseFailureOrSuccessOption: null == databaseFailureOrSuccessOption
+          ? _value.databaseFailureOrSuccessOption
+          : databaseFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<DatabaseFailure, Unit>>,
     ));
   }
 }
@@ -950,7 +951,7 @@ class _$_FillDataState extends _FillDataState {
       this.picture,
       required this.showValidatorMessages,
       required this.isSubmitting,
-      required this.success})
+      required this.databaseFailureOrSuccessOption})
       : super._();
 
   @override
@@ -966,11 +967,11 @@ class _$_FillDataState extends _FillDataState {
   @override
   final bool isSubmitting;
   @override
-  final bool success;
+  final Option<Either<DatabaseFailure, Unit>> databaseFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'FillDataState(dateOfBirth: $dateOfBirth, male: $male, displayName: $displayName, picture: $picture, showValidatorMessages: $showValidatorMessages, isSubmitting: $isSubmitting, success: $success)';
+    return 'FillDataState(dateOfBirth: $dateOfBirth, male: $male, displayName: $displayName, picture: $picture, showValidatorMessages: $showValidatorMessages, isSubmitting: $isSubmitting, databaseFailureOrSuccessOption: $databaseFailureOrSuccessOption)';
   }
 
   @override
@@ -988,12 +989,22 @@ class _$_FillDataState extends _FillDataState {
                 other.showValidatorMessages == showValidatorMessages) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 other.isSubmitting == isSubmitting) &&
-            (identical(other.success, success) || other.success == success));
+            (identical(other.databaseFailureOrSuccessOption,
+                    databaseFailureOrSuccessOption) ||
+                other.databaseFailureOrSuccessOption ==
+                    databaseFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, dateOfBirth, male, displayName,
-      picture, showValidatorMessages, isSubmitting, success);
+  int get hashCode => Object.hash(
+      runtimeType,
+      dateOfBirth,
+      male,
+      displayName,
+      picture,
+      showValidatorMessages,
+      isSubmitting,
+      databaseFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -1010,7 +1021,8 @@ abstract class _FillDataState extends FillDataState {
       final PlatformFile? picture,
       required final bool showValidatorMessages,
       required final bool isSubmitting,
-      required final bool success}) = _$_FillDataState;
+      required final Option<Either<DatabaseFailure, Unit>>
+          databaseFailureOrSuccessOption}) = _$_FillDataState;
   _FillDataState._() : super._();
 
   @override
@@ -1026,7 +1038,7 @@ abstract class _FillDataState extends FillDataState {
   @override
   bool get isSubmitting;
   @override
-  bool get success;
+  Option<Either<DatabaseFailure, Unit>> get databaseFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$$_FillDataStateCopyWith<_$_FillDataState> get copyWith =>

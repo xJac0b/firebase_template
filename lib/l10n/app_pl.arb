@@ -41,5 +41,6 @@
     "counterPageTitle": "Licznik",
     "unknownError": "Nieznany błąd",
     "shortPassword": "Hasło musi mieć co najmniej {length} znaków",
-    "weakPassword": "Musi zawierać wielką literę, małą literę,\\ncyfrę i znak specjalny (!@#\\$&*~)"
+    "weakPassword": "Musi zawierać wielką literę, małą literę,\\ncyfrę i znak specjalny (!@#\\$&*~)",
+    "editProfile": "Edytuj profil"
     }

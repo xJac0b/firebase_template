@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/resource_links.dart';
+import '../../../core/constants/resource_links.dart';
 
 class BackgroundImage extends StatelessWidget {
   const BackgroundImage({

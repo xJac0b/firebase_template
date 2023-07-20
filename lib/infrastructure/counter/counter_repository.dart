@@ -1,26 +1,27 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../domain/counter/i_counter_repository.dart';
 import '../../domain/shared/failures/database_failure.dart';
-import '../../domain/user/i_user_repository.dart';
-import '../../domain/user/user.dart';
 import '../shared/firestore_helpers.dart';
-import 'user_dtos.dart';
 
-@LazySingleton(as: IUserRepository)
-class UserRepository implements IUserRepository {
-  UserRepository(this._firestore);
+@LazySingleton(as: ICounterRepository)
+class CounterRepository implements ICounterRepository {
+  CounterRepository(this._firestore);
 
   final FirebaseFirestore _firestore;
 
   @override
-  Future<Either<DatabaseFailure, User>> get(firebase_auth.User fUser) async {
+  Future<Either<DatabaseFailure, int>> get(String uid) async {
     try {
-      final userDoc = await _firestore.userDocument(fUser.uid);
-      final doc = await userDoc.get();
-      return right(UserDto.fromFirestore(doc).toDomain(fUser));
+      final counterDoc = await _firestore.counterDocument(uid);
+      var doc = await counterDoc.get();
+      if (doc.data() == null) {
+        await create(uid);
+        doc = await counterDoc.get();
+      }
+      return right((doc.data() as Map<String, dynamic>)['counter'] as int);
     } on Exception catch (e) {
       if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const DatabaseFailure.insufficientPermission());
@@ -31,12 +32,11 @@ class UserRepository implements IUserRepository {
   }
 
   @override
-  Future<Either<DatabaseFailure, Unit>> create(User user) async {
+  Future<Either<DatabaseFailure, Unit>> create(String uid) async {
     try {
-      final userDoc = await _firestore.userDocument(user.id.getOrCrash());
-      final userDto = UserDto.fromDomain(user);
+      final counterDoc = await _firestore.counterDocument(uid);
 
-      await userDoc.set(userDto.toJson());
+      await counterDoc.set({'counter': 0});
 
       return right(unit);
     } on FirebaseException catch (e) {
@@ -49,30 +49,12 @@ class UserRepository implements IUserRepository {
   }
 
   @override
-  Future<Either<DatabaseFailure, Unit>> update(User user) async {
+  Future<Either<DatabaseFailure, Unit>> update(String uid, int newValue) async {
     try {
-      final userDoc = await _firestore.userDocument(user.id.getOrCrash());
-      final userDto = UserDto.fromDomain(user);
+      final counterDoc = await _firestore.counterDocument(uid);
 
-      await userDoc.update(userDto.toJson());
+      await counterDoc.update({'counter': newValue});
 
-      return right(unit);
-    } on FirebaseException catch (e) {
-      if (e.message!.contains('PERMISSION_DENIED')) {
-        return left(const DatabaseFailure.insufficientPermission());
-      } else if (e.message!.contains('NOT_FOUND')) {
-        return left(const DatabaseFailure.unableToUpdate());
-      } else {
-        return left(const DatabaseFailure.unexpected());
-      }
-    }
-  }
-
-  @override
-  Future<Either<DatabaseFailure, Unit>> delete(User user) async {
-    try {
-      final userDoc = await _firestore.userDocument(user.id.getOrCrash());
-      await userDoc.delete();
       return right(unit);
     } on FirebaseException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -86,8 +68,19 @@ class UserRepository implements IUserRepository {
   }
 
   @override
-  Future<Stream<DocumentSnapshot<Object?>>> changes(String uid) async {
-    final ref = await _firestore.userDocument(uid);
-    return ref.snapshots();
+  Future<Either<DatabaseFailure, Unit>> delete(String uid) async {
+    try {
+      final counterDoc = await _firestore.counterDocument(uid);
+      await counterDoc.delete();
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DatabaseFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DatabaseFailure.unableToUpdate());
+      } else {
+        return left(const DatabaseFailure.unexpected());
+      }
+    }
   }
 }

@@ -21,10 +21,10 @@ import 'package:firebase_template/presentation/auth/pages/reset_password/reset_p
     as _i3;
 import 'package:firebase_template/presentation/auth/pages/verification/verification_page.dart'
     as _i4;
-import 'package:firebase_template/presentation/counter/counter_page.dart'
-    as _i7;
-import 'package:firebase_template/presentation/profile/pages/profile_page.dart'
+import 'package:firebase_template/presentation/counter/pages/counter_page.dart'
     as _i8;
+import 'package:firebase_template/presentation/profile/pages/profile_page.dart'
+    as _i7;
 
 abstract class $AppRouter extends _i9.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -67,16 +67,16 @@ abstract class $AppRouter extends _i9.RootStackRouter {
         child: const _i6.HomePage(),
       );
     },
-    CounterRoute.name: (routeData) {
-      return _i9.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i7.CounterPage(),
-      );
-    },
     ProfileRoute.name: (routeData) {
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.ProfilePage(),
+        child: const _i7.ProfilePage(),
+      );
+    },
+    CounterRoute.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i8.CounterPage(),
       );
     },
   };
@@ -167,21 +167,7 @@ class HomeRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.CounterPage]
-class CounterRoute extends _i9.PageRouteInfo<void> {
-  const CounterRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          CounterRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CounterRoute';
-
-  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i8.ProfilePage]
+/// [_i7.ProfilePage]
 class ProfileRoute extends _i9.PageRouteInfo<void> {
   const ProfileRoute({List<_i9.PageRouteInfo>? children})
       : super(
@@ -190,6 +176,20 @@ class ProfileRoute extends _i9.PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileRoute';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i8.CounterPage]
+class CounterRoute extends _i9.PageRouteInfo<void> {
+  const CounterRoute({List<_i9.PageRouteInfo>? children})
+      : super(
+          CounterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CounterRoute';
 
   static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }

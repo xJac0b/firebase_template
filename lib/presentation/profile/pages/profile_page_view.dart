@@ -4,10 +4,12 @@ import 'package:intl/intl.dart';
 
 import '../../../../application/auth/auth/auth_bloc.dart';
 import '../../../l10n/l10n.dart';
+import '../../shared/widgets/default_padding.dart';
 import '../../shared/widgets/loading_indicator.dart';
-import 'widgets/avatar.dart';
-import 'widgets/background_image.dart';
-import 'widgets/profile_info_row.dart';
+import '../../shared/widgets/wide_button.dart';
+import '../widgets/avatar.dart';
+import '../widgets/background_image.dart';
+import '../widgets/profile_info_row.dart';
 
 class ProfilePageView extends StatelessWidget {
   const ProfilePageView({Key? key}) : super(key: key);
@@ -53,6 +55,12 @@ class ProfilePageView extends StatelessWidget {
                       text: DateFormat('d MMMM yyyy')
                           .format(state.user.dateOfBirth!.getOrCrash())
                           .toString(),
+                    ),
+                    DefaultPadding(
+                      child: WideButton(
+                        onPressed: () {},
+                        label: context.l10n.editProfile,
+                      ),
                     )
                   ]),
                 ),
@@ -65,4 +73,3 @@ class ProfilePageView extends StatelessWidget {
     );
   }
 }
-

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'user_failure.dart';
+part of 'database_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$UserFailure {
+mixin _$DatabaseFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
@@ -64,16 +64,16 @@ mixin _$UserFailure {
 }
 
 /// @nodoc
-abstract class $UserFailureCopyWith<$Res> {
-  factory $UserFailureCopyWith(
-          UserFailure value, $Res Function(UserFailure) then) =
-      _$UserFailureCopyWithImpl<$Res, UserFailure>;
+abstract class $DatabaseFailureCopyWith<$Res> {
+  factory $DatabaseFailureCopyWith(
+          DatabaseFailure value, $Res Function(DatabaseFailure) then) =
+      _$DatabaseFailureCopyWithImpl<$Res, DatabaseFailure>;
 }
 
 /// @nodoc
-class _$UserFailureCopyWithImpl<$Res, $Val extends UserFailure>
-    implements $UserFailureCopyWith<$Res> {
-  _$UserFailureCopyWithImpl(this._value, this._then);
+class _$DatabaseFailureCopyWithImpl<$Res, $Val extends DatabaseFailure>
+    implements $DatabaseFailureCopyWith<$Res> {
+  _$DatabaseFailureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -90,7 +90,7 @@ abstract class _$$_UnexpectedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnexpectedCopyWithImpl<$Res>
-    extends _$UserFailureCopyWithImpl<$Res, _$_Unexpected>
+    extends _$DatabaseFailureCopyWithImpl<$Res, _$_Unexpected>
     implements _$$_UnexpectedCopyWith<$Res> {
   __$$_UnexpectedCopyWithImpl(
       _$_Unexpected _value, $Res Function(_$_Unexpected) _then)
@@ -104,7 +104,7 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   String toString() {
-    return 'UserFailure.unexpected()';
+    return 'DatabaseFailure.unexpected()';
   }
 
   @override
@@ -186,7 +186,7 @@ class _$_Unexpected implements _Unexpected {
   }
 }
 
-abstract class _Unexpected implements UserFailure {
+abstract class _Unexpected implements DatabaseFailure {
   const factory _Unexpected() = _$_Unexpected;
 }
 
@@ -199,7 +199,7 @@ abstract class _$$_InsufficientPermissionCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InsufficientPermissionCopyWithImpl<$Res>
-    extends _$UserFailureCopyWithImpl<$Res, _$_InsufficientPermission>
+    extends _$DatabaseFailureCopyWithImpl<$Res, _$_InsufficientPermission>
     implements _$$_InsufficientPermissionCopyWith<$Res> {
   __$$_InsufficientPermissionCopyWithImpl(_$_InsufficientPermission _value,
       $Res Function(_$_InsufficientPermission) _then)
@@ -213,7 +213,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   String toString() {
-    return 'UserFailure.insufficientPermission()';
+    return 'DatabaseFailure.insufficientPermission()';
   }
 
   @override
@@ -296,7 +296,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   }
 }
 
-abstract class _InsufficientPermission implements UserFailure {
+abstract class _InsufficientPermission implements DatabaseFailure {
   const factory _InsufficientPermission() = _$_InsufficientPermission;
 }
 
@@ -309,7 +309,7 @@ abstract class _$$_UnableToUpdateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnableToUpdateCopyWithImpl<$Res>
-    extends _$UserFailureCopyWithImpl<$Res, _$_UnableToUpdate>
+    extends _$DatabaseFailureCopyWithImpl<$Res, _$_UnableToUpdate>
     implements _$$_UnableToUpdateCopyWith<$Res> {
   __$$_UnableToUpdateCopyWithImpl(
       _$_UnableToUpdate _value, $Res Function(_$_UnableToUpdate) _then)
@@ -323,7 +323,7 @@ class _$_UnableToUpdate implements _UnableToUpdate {
 
   @override
   String toString() {
-    return 'UserFailure.unableToUpdate()';
+    return 'DatabaseFailure.unableToUpdate()';
   }
 
   @override
@@ -405,6 +405,6 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   }
 }
 
-abstract class _UnableToUpdate implements UserFailure {
+abstract class _UnableToUpdate implements DatabaseFailure {
   const factory _UnableToUpdate() = _$_UnableToUpdate;
 }

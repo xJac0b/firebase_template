@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../application/auth/fill_data/fill_data_bloc.dart';
 import '../../../../../l10n/l10n.dart';
-import '../../../widgets/wide_button.dart';
+import '../../../../shared/widgets/wide_button.dart';
 import 'avatar_upload.dart';
 import 'date_field.dart';
 import 'gender_dropdown.dart';

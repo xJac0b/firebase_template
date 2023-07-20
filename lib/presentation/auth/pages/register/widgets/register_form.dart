@@ -6,10 +6,10 @@ import '../../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../../../core/routes/router.gr.dart';
 import '../../../../../l10n/l10n.dart';
 import '../../../../shared/widgets/loading_indicator.dart';
+import '../../../../shared/widgets/wide_button.dart';
 import '../../../widgets/email_form_field.dart';
 import '../../../widgets/password_form_field.dart';
 import '../../../widgets/two_text_parts_button.dart';
-import '../../../widgets/wide_button.dart';
 
 class RegisterForm extends StatelessWidget {
   const RegisterForm({

@@ -6,8 +6,8 @@ import '../../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../../../l10n/l10n.dart';
 import '../../../../shared/widgets/default_padding.dart';
 import '../../../../shared/widgets/loading_indicator.dart';
+import '../../../../shared/widgets/wide_button.dart';
 import '../../../widgets/email_form_field.dart';
-import '../../../widgets/wide_button.dart';
 
 class ResetPaswordForm extends StatelessWidget {
   const ResetPaswordForm({super.key});

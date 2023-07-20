@@ -9,7 +9,8 @@ class FillDataState with _$FillDataState {
     PlatformFile? picture,
     required bool showValidatorMessages,
     required bool isSubmitting,
-    required bool success,
+    required Option<Either<DatabaseFailure, Unit>>
+        databaseFailureOrSuccessOption,
   }) = _FillDataState;
 
   const FillDataState._();
@@ -20,6 +21,6 @@ class FillDataState with _$FillDataState {
         displayName: DisplayName(''),
         showValidatorMessages: false,
         isSubmitting: false,
-        success: false,
+        databaseFailureOrSuccessOption: none(),
       );
 }

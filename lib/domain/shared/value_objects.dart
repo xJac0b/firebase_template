@@ -3,7 +3,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:uuid/uuid.dart';
 
 import 'errors.dart';
-import 'failures.dart';
+import 'failures/failures.dart';
 
 @immutable
 abstract class ValueObject<T> {

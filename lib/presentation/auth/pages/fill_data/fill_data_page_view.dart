@@ -27,12 +27,28 @@ class FillDataPageView extends StatelessWidget {
             child: DefaultPadding(
               child: BlocConsumer<FillDataBloc, FillDataState>(
                 listener: (context, state) {
-                  if (state.success) {
-                    context.router.replace(const HomeRoute());
-                  }
+                  state.databaseFailureOrSuccessOption.fold(
+                    () => null,
+                    (t) => t.fold(
+                      (l) => ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            l.maybeMap(
+                              orElse: () => context.l10n.serverError,
+                            ),
+                          ),
+                        ),
+                      ),
+                      (_) => context.router.replace(const HomeRoute()),
+                    ),
+                  );
                 },
                 builder: (context, state) {
-                  if (state.isSubmitting || state.success) {
+                  if (state.isSubmitting ||
+                      state.databaseFailureOrSuccessOption.fold(
+                        () => false,
+                        (t) => t.fold((l) => false, (r) => true),
+                      )) {
                     return const LoadingIndicator();
                   }
                   return Column(

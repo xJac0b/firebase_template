@@ -41,5 +41,6 @@
     "counterPageTitle": "Counter",
     "unknownError": "Unknown error",
     "shortPassword": "Password must be at least {length} characters long",
-    "weakPassword": "Must have 1 uppercase, 1 lowercase, 1 number\\nand 1 special character (!@#\\$&*~)"
+    "weakPassword": "Must have 1 uppercase, 1 lowercase, 1 number\\nand 1 special character (!@#\\$&*~)",
+    "editProfile": "Edit profile"
 }

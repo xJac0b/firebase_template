@@ -3,11 +3,13 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/auth/i_auth_facade.dart';
 import '../../../domain/auth/value_objects.dart';
+import '../../../domain/shared/failures/database_failure.dart';
 import '../../../domain/storage/i_storage_repository.dart';
 import '../../../domain/user/i_user_repository.dart';
 import '../../../infrastructure/shared/firebase_storage_helpers.dart';
@@ -79,12 +81,14 @@ class FillDataBloc extends Bloc<FillDataEvent, FillDataState> {
   Future<void> save(_Saved event, Emitter<FillDataState> emit) async {
     final isDisplayNameValid = state.displayName.isValid();
     final isDateOfBirthValid = state.dateOfBirth.isValid();
-    var success = false;
+    Either<DatabaseFailure, Unit>? failureOrSuccess;
     if (isDisplayNameValid && isDateOfBirthValid) {
       emit(
-        state.copyWith(isSubmitting: true),
+        state.copyWith(
+          isSubmitting: true,
+          databaseFailureOrSuccessOption: none(),
+        ),
       );
-
       final _user = _authFacade.getSignedInUser();
       String? photoUrl;
       await _user.fold(() => null, (t) async {
@@ -104,13 +108,12 @@ class FillDataBloc extends Bloc<FillDataEvent, FillDataState> {
               displayName: state.displayName,
               photoUrl: photoUrl,
             );
-        await _userRepository.update(user);
-        success = true;
+        failureOrSuccess = await _userRepository.update(user);
       });
     }
     emit(
       state.copyWith(
-        success: success,
+        databaseFailureOrSuccessOption: optionOf(failureOrSuccess),
         isSubmitting: false,
         showValidatorMessages: true,
       ),

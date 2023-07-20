@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/extensions.dart';
-import '../../../shared/widgets/default_padding.dart';
+import '../../../core/utils/extensions.dart';
+import '../../shared/widgets/default_padding.dart';
 
 class ProfileInfoRow extends StatelessWidget {
   const ProfileInfoRow({

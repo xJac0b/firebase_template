@@ -1,4 +1,4 @@
-import 'failures.dart';
+import 'failures/failures.dart';
 
 class NotAuthenticatedError extends Error {}
 

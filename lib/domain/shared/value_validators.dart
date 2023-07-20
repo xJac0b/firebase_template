@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
 
-import 'failures.dart';
+import 'failures/failures.dart';
 
 Either<ValueFailure<String>, String> validateMaxStringLength(
   String input,
