@@ -13,6 +13,8 @@ This template provides a solid foundation for building feature-rich Flutter appl
 - **Firestore Integration**: Store user data in Firestore for real-time data synchronization across devices.
 - **Firebase Cloud Storage**: Upload and manage user avatars securely using Firebase Cloud Storage.
 - **Classic Counter**: A simple counter example demonstrating Firestore integration.
+- **Cached Network Image**: Use "cached_network_image" package for caching images from network.
+With this feature, images fetched from the network will be cached locally, reducing the number of requests and improving performance.
 
 ## Getting Started 🚀
 
@@ -151,6 +153,12 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
     }
 }
 ```
+
+### Contribution
+Contributions are welcome! If you encounter any bugs or have ideas for improvements, feel free to open an issue or submit a pull request.
+
+### License
+This project is licensed under the MIT License.
 
 [coverage_badge]: coverage_badge.svg
 [flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
