@@ -22,36 +22,36 @@ To create a new project using this template, follow these steps:
 
 2. **Set up Firebase:**
 
-Follow the [Firebase Flutter Setup Guide](https://firebase.google.com/docs/flutter/setup?platform=ios) to add Firebase to your Flutter project. This guide will walk you through the steps to configure Firebase for both Android and iOS platforms.
+	Follow the [Firebase Flutter Setup Guide](https://firebase.google.com/docs/flutter/setup?platform=ios) to add Firebase to your Flutter project. This guide will walk you through the steps to 	configure Firebase for both Android and iOS platforms.
 
 3. **Install Dependencies**
-Run the following command to get the required dependencies:
-
-```sh
-$ flutter pub get
-```
+	Run the following command to get the required dependencies:
+	
+	```sh
+	$ flutter pub get
+	```
 
 4. **Run the app**
 
-This project contains 3 flavors:
-
-- development
-- staging
-- production
-
-To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
-
-```sh
-# Development
-$ flutter run --flavor development --target lib/main_development.dart
-
-# Staging
-$ flutter run --flavor staging --target lib/main_staging.dart
-
-# Production
-$ flutter run --flavor production --target lib/main_production.dart
-```
----
+	This project contains 3 flavors:
+	
+	- development
+	- staging
+	- production
+	
+	To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
+	
+	```sh
+	# Development
+	$ flutter run --flavor development --target lib/main_development.dart
+	
+	# Staging
+	$ flutter run --flavor staging --target lib/main_staging.dart
+	
+	# Production
+	$ flutter run --flavor production --target lib/main_production.dart
+	```
+	---
 
 ## Working with Translations 🌐
 
