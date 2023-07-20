@@ -50,5 +50,7 @@ flutter_gen:
     flutter_svg: true
 
 flutter:
+  assets:
+    - assets/images/
   uses-material-design: true
   generate: true

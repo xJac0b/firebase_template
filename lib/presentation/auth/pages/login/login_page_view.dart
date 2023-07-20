@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../../../shared/widgets/default_padding.dart';
 import 'widgets/login_form.dart';
 
@@ -13,12 +14,13 @@ class LoginPageView extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       resizeToAvoidBottomInset: false,
-      body: const Center(
+      body: Center(
         child: DefaultPadding(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              LoginForm(),
+              Assets.images.firebase.image(width: 100),
+              const LoginForm(),
             ],
           ),
         ),
